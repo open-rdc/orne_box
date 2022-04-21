@@ -1,0 +1,13 @@
+waypoint_reconfigure_config:
+  version: 1.0.0
+  name: "tsukuba2024_box"
+  default_dwa_limit_vel: 1.0
+  default_local_inflation: 0.3
+  default_global_inflation: 1.5
+  areas:
+    - name: "area1"
+      start_id: registed_0_779006000000
+      end_id: registed_0_840456000000
+      properties:
+        - key: global_inflation
+          value: 0.4

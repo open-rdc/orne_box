@@ -4,7 +4,7 @@
 # Configuration by NaokiTakahashi12
 shutdown_costmaps: false
 base_global_planner: global_planner/GlobalPlanner
-planner_frequency: 1.0
+planner_frequency: 0.5
 oscillation_distance: 0.1
 oscillation_timeout: 10.0
 #base_local_planner: base_local_planner/TrajectoryPlannerROS

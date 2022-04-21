@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="rosbag" type="record" name="rosbag_record" output="screen"
+	  args="record -b 4096 -o /home/orne-box/rosbag/tsukuba/2024/
+	 /tf
+	 /tf_static
+         /odom
+         /imu_data
+	 /imu_data/raw
+	 /odometry/filtered
+         /rfans/surestar_points
+         /rfans/surestar_scan
+         /hokuyo_scan
+         /joy
+         /cmd_vel
+	 /map_for_costmap
+	 /move_base/global_costmap/costmap
+	 /move_base/global_costmap/costmap_updates
+ 	 /move_base/local_costmap/costmap
+ 	 /move_base/local_costmap/costmap_updates
+  	 /amcl_pose
+	 /sanwa/image_raw/compressed
+	 /theta/image_raw/compressed
+         "/>
+</launch>

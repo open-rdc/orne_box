@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="output" default="screen"/>
+  <arg name="goal_topic" default="/move_base_simple/goal"/>
+  <arg name="regist_goal_topic" default="/clicked_point"/>
+  <arg name="config_file" default="$(find waypoint_server)/config/waypoint_server.yaml"/>
+  <arg name="reconfig_file" default="$(find orne_box_navigation_executor)/config/waypoint_server/reconfigure_list.yaml"/>
+
+  <arg name="use_check_robot_moving" default="false"/>
+  <arg name="use_waypoint_reconfigure" default="true"/>
+
+  <group ns="waypoint_manager">
+    <node pkg="waypoint_server" type="waypoint_server_node" name="waypoint_server" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+      <remap from="waypoint/regist_point" to="$(arg regist_goal_topic)"/>
+      <param name="clear_costmap_srv" value="/move_base/clear_costmaps" />
+    </node>
+    <node pkg="waypoint_server" type="waypoint_to_posestamped_node" name="waypoint_to_posestamped" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+      <remap from="move_base_simple/goal" to="$(arg goal_topic)"/>
+    </node>
+    <node pkg="waypoint_visualization" type="waypoint_visualization_node" name="waypoint_visualization" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+      <remap from="waypoint/regist_point" to="$(arg regist_goal_topic)"/>
+    </node>
+    <node pkg="goal_event_handler" type="radius_node" name="radius_node" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+    </node>
+    <node if="$(arg use_check_robot_moving)" pkg="check_robot_moving" type="check_robot_moving_node" name="check_robot_moving_node" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+      <param name="mcl_pose_topic" value="/mcl_pose" />
+      <param name="cmd_vel_topic" value="/icart_mini/cmd_vel" />
+      <param name="clear_costmap_srv" value="/move_base/clear_costmaps" />
+      <param name="limit_time" value="70.0" />
+      <param name="limit_delta_pose_dist" value="0.1" />
+    </node>   
+    <node if="$(arg use_waypoint_reconfigure)" pkg="waypoint_reconfigure" type="waypoint_reconfigure_node" name="waypoint_reconfigure_node" output="$(arg output)">
+      <rosparam command="load" file="$(arg config_file)" subst_value="true"/>
+      <param name="file_path" value="$(arg reconfig_file)" />
+    </node>
+  </group>
+</launch>

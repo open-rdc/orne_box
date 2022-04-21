@@ -4,7 +4,8 @@
 # Configuration by NaokiTakahashi12
 local_costmap:
   global_frame: map
-  robot_base_frame: base_link
+  robot_base_frame: projected_base_link
+  #robot_base_frame: projected_base_link
   update_frequency: 4.0505
   publish_frequency: 4.0
   transform_tolerance: 0.20111

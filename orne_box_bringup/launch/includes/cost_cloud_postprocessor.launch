@@ -6,7 +6,7 @@
   <arg name="cloud_source" default="/rfans/surestar_points"/>
   <arg name="manager" default="cost_cloud_process_manager"/>
   <arg name="field_name" default="z"/>
-  <arg name="limit_min" default="-0.15"/>
+  <arg name="limit_min" default="0.0"/>
   <arg name="limit_max" default="0.8"/>
   <arg name="output_frame_id" default="base_link"/>
   <arg name="output_topic" default="cost_cloud"/>

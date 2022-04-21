@@ -28,9 +28,9 @@ mcl_3dl:
   init_var_y: 2.0
   init_var_yaw: 0.5
   init_var_z: 1.0
-  init_x: 0
-  init_y: 0
-  init_yaw: 0
+  init_x: 10.4 #tsukuba
+  init_y: -51.8 #tsukuba
+  init_yaw: -0.36 #tsukuba
   init_z: 0
   jump_ang: 0.67
   jump_dist: 1.5

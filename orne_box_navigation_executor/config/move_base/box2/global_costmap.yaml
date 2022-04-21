@@ -4,6 +4,8 @@
 # Configuration by NaokiTakahashi12
 global_costmap:
   update_frequency: 2.55055
+  global_frame: map
+  robot_base_frame: projected_base_link
   publish_frequency: 2.0
   transform_tolerance: 0.2033
   track_unknown_space: true

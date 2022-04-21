@@ -24,7 +24,7 @@
     <arg name="imu_topic"   value="$(arg imu_topic)"/>
   </include>
 
-  <include file="$(find orne_box_navigation_executor)/launch/waypoint_server.launch">
+  <include file="$(find orne_box_navigation_executor)/launch/waypoint_server_options.launch">
     <arg name="config_file" value="$(arg waypoint_config)"/>
   </include>
 

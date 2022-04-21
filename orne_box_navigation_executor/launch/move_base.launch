@@ -19,7 +19,7 @@
     <rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/base_local_planner.yaml" command="load"/>
     <!--rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/trajectory_local_planner.yaml" command="load"/-->
     <!--rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/dwa_local_planner.yaml" command="load"/-->
-    <rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/navfn_global_planner.yaml" command="load"/>
+    <!--rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/navfn_global_planner.yaml" command="load"/-->
     <rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/global_planner.yaml" command="load"/>
     <rosparam file="$(find orne_box_navigation_executor)/config/move_base/$(arg robot_name)/recovery_behaviors.yaml" command="load"/>
     <remap from="odom" to="$(arg odom_topic)"/>

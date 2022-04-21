@@ -13,6 +13,7 @@ GlobalPlanner:
   use_grid_path: false
   orientation_mode: 2
   lethal_cost: 128
+  #cost_factor: 0.5
   cost_factor: 0.6
   neutral_cost: 55.0
   visualize_potential: false

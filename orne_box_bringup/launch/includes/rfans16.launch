@@ -9,6 +9,8 @@
   <arg name="read_once" default="false"/>
   <arg name="repeat_delay" default="0.0"/>
   <arg name="frame_id" default="surestar"/>
+  <arg name="max_range" default="50.0"/>
+  <arg name="min_range" default="0.0"/>
   <group ns="$(arg namespace)" clear_params="true">
     <param name="model" value="R-Fans-16"/>
     <node pkg="rfans_driver" type="driver_node" name="rfans_driver" output="screen">
@@ -31,6 +33,8 @@
       <param name="use_gps" value="false"/>
       <param name="revise_angle_128" value="$(arg revise_angle_128)"/>
       <param name="revise_angle_32" value="$(arg revise_angle_32)"/>
+      <param name="max_range" value="$(arg max_range)"/>
+      <param name="min_range" value="$(arg min_range)"/>
     </node>
     <node pkg="rfans_driver" type="cloud_process" name="cloud_process">
       <remap from="rfans_points" to="surestar_points"/>

@@ -14,6 +14,7 @@
   <include file="$(find orne_box_bringup)/launch/includes/adis_rcv_csv_orne.launch"/>
   <!--include file="$(find orne_box_bringup)/launch/includes/ublox_device.launch"/-->
   <!--include file="$(find orne_box_bringup)/launch/includes/adis16465.launch"/-->
+  <include file="$(find orne_box_bringup)/launch/includes/stm32_serial_connect.launch"/>
   <node pkg="orne_box_bringup" type="projected_transform_publisher_node" name="projected_transform_publisher" output="$(arg output)">
   </node>
 </launch>

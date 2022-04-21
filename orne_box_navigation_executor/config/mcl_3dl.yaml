@@ -55,10 +55,11 @@ mcl_3dl:
   odom_err_ang_ang: 0.35
   odom_err_ang_lin: 0.15
   odom_err_integ_ang_tc: 10.0
-  odom_err_integ_lin_sigma: 100.0
+  #odom_err_integ_lin_sigma: 100.0
+  odom_err_integ_lin_sigma: 50.0
   odom_err_integ_lin_tc: 10.0
   odom_err_lin_ang: 0.15
-  odom_err_lin_lin: 0.7
+  odom_err_lin_lin: 0.2
   output_pcd: false
   publish_tf: true
   resample_var_pitch: 0.021

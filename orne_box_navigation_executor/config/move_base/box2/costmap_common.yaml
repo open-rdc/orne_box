@@ -5,41 +5,30 @@ local_obstacles_layer:
   raytrace_range: 4
   inflation_radius: 1.2
   combination_method: 0
-  #  observation_sources: hokuyo_laser_scan mirror_laser_scan
-#  observation_sources: hokuyo_laser_scan
-#  hokuyo_laser_scan:
-#    data_type: LaserScan
-#    sensor_frame: hokuyo_link
-#    marking: true
-#    clearing: true
-#    inf_is_valid: true
-#    min_obstacle_height: &local_min_obstacle_height -0.1
-#    max_obstacle_height: &local_max_obstacle_height 20.0
-#    topic: hokuyo_scan
-  observation_sources: 2d_lidar_laser_scan 3d_lidar_laser_scan
+  #observation_sources: 2d_lidar_laser_scan 3d_lidar_laser_scan
+  observation_sources: 2d_lidar_laser_scan
   2d_lidar_laser_scan:
     data_type: LaserScan
-    sensor_frame: base_link
+    sensor_frame: hokuyo_link
     marking: true
     clearing: true
     inf_is_valid: true
     min_obstacle_height: 0.1
     max_obstacle_height: 30.0
     topic: hokuyo_scan
-  3d_lidar_laser_scan:
-    data_type: LaserScan
-    sensor_frame: base_link
-    marking: true
-    clearing: true
-    inf_is_valid: true
-    min_obstacle_height: 0.1
-    max_obstacle_height: 30.0
-    topic: velodyne_driver/scan
+    #  3d_lidar_laser_scan:
+    #data_type: LaserScan
+    #sensor_frame: base_link
+    #marking: true
+    #clearing: true
+    #inf_is_valid: true
+    #min_obstacle_height: 0.1
+    #max_obstacle_height: 30.0
+    #topic: velodyne_driver/scan
 local_cost_cloud_layer:
-  enabled: true
+  enabled: false
   obstacle_range: 10.5
   raytrace_range: 10.5
-  #inflation_radius: 1.2
   inflation_radius: 1.2
   combination_method: 1
   observation_sources: cost_cloud
@@ -57,7 +46,6 @@ global_obstacles_layer:
   obstacle_range: 2.5
   raytrace_range: 2.5
   inflation_radius: 1.2
-  #inflation_radius: 1.2
   combination_method: 1
   observation_sources: hokuyo_laser_scan
   hokuyo_laser_scan:
@@ -79,9 +67,5 @@ inflation_layer:
   enabled: true
   use_maximum: true
   inflate_unknown: true
-  #inflation_radius: 0.4
-  #inflation_radius: 0.5
   inflation_radius: 0.4
   cost_scaling_factor: 3.0
-  #cost_scaling_factor: 0.9
-  #cost_scaling_factor: 2.0

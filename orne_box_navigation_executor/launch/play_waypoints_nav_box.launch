@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
+  <arg name="scan_topic" default="scan"/>
   <arg name="robot_name" default="box2"/>
   <arg name="map_file"   default="$(find orne_box_navigation_executor)/maps/mymap"/>
   <arg name="init_pos_file" default="$(find orne_box_navigation_executor)/config/initial_pose_cfg/initial_pose.yaml"/>
@@ -15,11 +16,15 @@
     <arg name="cmd_vel" value="$(arg cmd_vel)"/>
   </include>
 
-  <include file="$(find orne_box_navigation_executor)/launch/amcl.launch">
+  <include file="$(find emcl2)/launch/emcl2.launch">
+    <arg name="scan_topic" value="$(arg scan_topic)"/>
+  </include>
+  
+  <!--include file="$(find orne_box_navigation_executor)/launch/amcl.launch">
     <arg name="robot_name" value="$(arg robot_name)"/>
     <arg name="map_file" value="$(arg map_file)"/>
     <arg name="init_pos_file" value="$(arg init_pos_file)"/>
-  </include>
+  </include-->
 
   <include file="$(find orne_box_navigation_executor)/launch/waypoint_server.launch">
     <arg name="config_file" value="$(arg waypoint_config)"/>

@@ -228,7 +228,7 @@ local_costmap:
       width: 3
       height: 3
       resolution: 0.05
-      robot_radius: 0.3
+      footprint: "[ [-0.2, -0.2775], [-0.2, 0.2775], [0.6, 0.2775], [0.6, -0.2775] ]"
       plugins: ["obstacle_layer","voxel_layer", "inflation_layer"]
       #keepout
       filters: ["keepout_filter"]
@@ -299,7 +299,7 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_footprint
       use_sim_time: True
-      robot_radius: 0.3
+      footprint: "[ [-0.2, -0.2775], [-0.2, 0.2775], [0.6, 0.2775], [0.6, -0.2775] ]"
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]

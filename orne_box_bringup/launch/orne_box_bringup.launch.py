@@ -6,6 +6,9 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import IncludeLaunchDescription
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
+
 def generate_launch_description():
     icart_mini_driver_dir = get_package_share_directory('orne_box_bringup')
 
@@ -20,6 +23,48 @@ def generate_launch_description():
     # driver_param = os.path.join(icart_mini_driver_dir,'config','driver_node.param.yaml')
     
     ypspur_coordinator_path = os.path.join(icart_mini_driver_dir,'scripts','ypspur_coordinator_bridge')
+
+    ### start description ###
+    packages_name = "orne_box_description"
+    xacro_file_name = "orne_box_3d_lidar_rfans.urdf.xacro"
+    # Get URDF via xacro
+    robot_description_content = Command(
+        [
+            PathJoinSubstitution([FindExecutable(name="xacro")]),
+            " ",
+            PathJoinSubstitution(
+                [FindPackageShare(packages_name), "urdf", xacro_file_name]
+            ),
+        ]
+    )
+    robot_description = {"robot_description": robot_description_content}
+
+    robot_state_pub_node = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="screen",
+        parameters=[robot_description],
+    )
+    
+    # joint_state_pub_gui_node = Node(
+    #     package="joint_state_publisher_gui",
+    #     executable="joint_state_publisher_gui",
+    #     output="screen",
+    # )
+    joint_state_pub_node = Node(
+        package="joint_state_publisher",
+        executable="joint_state_publisher",
+        output="screen",
+    )
+        
+    description_nodes = [
+        robot_state_pub_node,
+        # joint_state_pub_gui_node
+        joint_state_pub_node
+    ]
+
+    ### end description ###
+
     return LaunchDescription([
         launch.actions.LogInfo(
             msg="Launch ypspur coordinator."
@@ -63,6 +108,12 @@ def generate_launch_description():
         launch.actions.LogInfo(
             msg="Launch robot_description  node."
         ),
+
+        ### start description
+        #description_nodes,
+        robot_state_pub_node,
+        joint_state_pub_node,
+
         #mixed wheel_odom and other (IMU etc..)
         # IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource(
@@ -97,12 +148,21 @@ def generate_launch_description():
         # ),
 
         # add rfans16
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/rfans16.launch.py'])
+        # ),
+        # launch.actions.LogInfo(
+        #     msg="Launch rfans16 node."
+        # ),
+
+        # add rfans16_filters
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/rfans16.launch.py'])
+                [launch_include_file_dir, '/rfans16_filters.launch.py'])
         ),
         launch.actions.LogInfo(
-            msg="Launch rfans16 node."
+            msg="Launch rfans16_filters node."
         )
 
     ])

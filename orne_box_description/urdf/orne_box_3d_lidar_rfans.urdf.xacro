@@ -7,13 +7,13 @@
     <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
     <!-- Setting for 3D-LiDAR -->
     <xacro:VLP-16 parent="base_link" name="surestar" topic="/rfans_points" organize_cloud="false" hz="10" samples="440" gpu="false">
-      <origin xyz="0.23 0 0.40" rpy="0 0 3.14"/>
+      <origin xyz="0.23 0 0.40" rpy="0 0 0"/>
     </xacro:VLP-16>
   </xacro:if>
   <xacro:if value="$(arg ignition_gazebo)">
     <link name="surestar">
       <inertial>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0"/>
         <mass value="0.3"/>
         <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
       </inertial>

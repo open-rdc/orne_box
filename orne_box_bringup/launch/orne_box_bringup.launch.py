@@ -64,27 +64,45 @@ def generate_launch_description():
             msg="Launch robot_description  node."
         ),
         #mixed wheel_odom and other (IMU etc..)
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/robot_localization_ekf.launch.py'])
+        # ),
+        # launch.actions.LogInfo(
+        #     msg="Launch robot_localization_ekf node."
+        # ),
+        
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/robot_localization_ekf.launch.py'])
+                [launch_include_file_dir, '/teleop.launch.py'])
         ),
         launch.actions.LogInfo(
-            msg="Launch robot_localization_ekf node."
+            msg="Launch joy node."
         ),
 
         # sensors
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/urg_node2.launch.py'])
+        # ),
+        # launch.actions.LogInfo(
+        #     msg="Launch URG  node."
+        # ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/adis16465.launch.py'])
+        # ),
+        # launch.actions.LogInfo(
+        #     msg="Launch IMU node."
+        # ),
+
+        # add rfans16
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/urg_node2.launch.py'])
+                [launch_include_file_dir, '/rfans16.launch.py'])
         ),
         launch.actions.LogInfo(
-            msg="Launch URG  node."
-        ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/adis16465.launch.py'])
-        ),
-        launch.actions.LogInfo(
-            msg="Launch IMU node."
+            msg="Launch rfans16 node."
         )
+
     ])

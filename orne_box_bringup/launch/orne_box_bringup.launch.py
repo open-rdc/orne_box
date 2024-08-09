@@ -114,6 +114,7 @@ def generate_launch_description():
 
 
     nodes = [
+        imu_declare_namespace,
         robot_state_pub_node,
         joint_state_pub_node,
         imu

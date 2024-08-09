@@ -15,13 +15,12 @@ from launch_ros.actions import Node, PushRosNamespace
 def generate_launch_description():
     icart_mini_driver_dir = get_package_share_directory('orne_box_bringup')
     adi_driver2_dir = get_package_share_directory('adi_driver2')
-
+    launch_include_file_dir = os.path.join(get_package_share_directory('orne_box_bringup'), 'launch/include') 
 
     ypspur_param = os.path.join(icart_mini_driver_dir,'config/ypspur','box_v3.param')
-    params_file = os.path.join(adi_driver2_dir, 'config', 'adis16465.param.yaml')
+    imu_params_file = os.path.join(adi_driver2_dir, 'config', 'adis16465.param.yaml')
 
     # launch_file_dir = os.path.join(get_package_share_directory('orne_box_bringup'), 'launch') 
-    launch_include_file_dir = os.path.join(get_package_share_directory('orne_box_bringup'), 'launch/include') 
     ypspur_coordinator_path = os.path.join(icart_mini_driver_dir,'scripts','ypspur_coordinator_bridge')
 
     packages_name = "orne_box_description"
@@ -64,7 +63,18 @@ def generate_launch_description():
         name="adis16465_node",
         package="adi_driver2",
         executable="adis16465",
-        parameters=[params_file],
+        parameters=[imu_params_file],
+        output="screen"
+    )
+
+    imu_filter_node = Node(
+        name="imu_filter_msdgwick_node"
+        package="imu_filter_madgwick",
+        executable="imu_filter_madgwick_node",
+        parameters=
+            [{
+                "use_mag": False
+            }],
         output="screen"
     )
 
@@ -78,23 +88,24 @@ def generate_launch_description():
         ),
         launch.actions.LogInfo(
             msg="Launch icart_mini_mini_driver node."
-        ),Node(
-        package='orne_box_bringup',
-        executable='icart_mini_driver',
-        parameters=
-        [{
-            'odom_frame_id':'odom',
-            'base_frame_id':'base_footprint',
-            'Hz':40,
-            'left_wheel_joint':'left_wheel_joint',
-            'right_wheel_joint':'right_wheel_joint',
-            'liner_vel_lim':1.5,
-            'liner_accel_lim':1.5,
-            'angular_vel_lim':3.14,
-            'angular_accel_lim':3.14,
-            'calculate_odom_from_ypspur':True,
-            'publish_odom_tf':True
-        }]
+        ),
+        Node(
+            package='orne_box_bringup',
+            executable='icart_mini_driver',
+            parameters=
+                [{
+                    'odom_frame_id':'odom',
+                    'base_frame_id':'base_footprint',
+                    'Hz':40,
+                    'left_wheel_joint':'left_wheel_joint',
+                    'right_wheel_joint':'right_wheel_joint',
+                    'liner_vel_lim':1.5,
+                    'liner_accel_lim':1.5,
+                    'angular_vel_lim':3.14,
+                    'angular_accel_lim':3.14,
+                    'calculate_odom_from_ypspur':True,
+                    'publish_odom_tf':True
+                }]
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -105,56 +116,20 @@ def generate_launch_description():
         ),
     ]
 
-    imu = GroupAction(
+    imu_raw = GroupAction(
         actions=[
         push_ns,
         imu_adis16465_node,
         ]
     )
 
-
     nodes = [
-        imu_declare_namespace,
+        icart_mini_driver_node,
         robot_state_pub_node,
         joint_state_pub_node,
-        imu
+        imu_declare_namespace,
+        imu_raw,
+        imu_filter_node
     ]
 
     return LaunchDescription(nodes)
-
-    return LaunchDescription([
-        launch.actions.LogInfo(
-            msg="Launch ypspur coordinator."
-        ),
-        launch.actions.ExecuteProcess(
-            cmd=[ypspur_coordinator_path,ypspur_param],
-            shell=True,
-        ),
-        launch.actions.LogInfo(
-            msg="Launch icart_mini_mini_driver node."
-        ),
-        Node(
-            package='orne_box_bringup',
-            executable='icart_mini_driver',
-            parameters=[{'odom_frame_id':'odom',
-                        'base_frame_id':'base_footprint',
-                        'Hz':40,
-                        'left_wheel_joint':'left_wheel_joint',
-                        'right_wheel_joint':'right_wheel_joint',
-                        'liner_vel_lim':1.5,
-                        'liner_accel_lim':1.5,
-                        'angular_vel_lim':3.14,
-                        'angular_accel_lim':3.14,
-                        'calculate_odom_from_ypspur':True,
-                        'publish_odom_tf':True
-            }]
-        ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/teleop.launch.py'])
-        ),
-        launch.actions.LogInfo(
-            msg="Launch joy node."
-        ),
-
-    ])

@@ -11,12 +11,13 @@ global_costmap:
   always_send_full_costmap: false
   trinary_costmap: true
   resolution: 0.04
+  static_map: false
   plugins:
     - name: planner_map_layer
       type: costmap_2d::StaticLayer
     - name: global_obstacles_layer
       type: costmap_2d::ObstacleLayer
-    - name: global_cost_cloud_layer
-      type: costmap_2d::ObstacleLayer
+#    - name: global_cost_cloud_layer
+#      type: costmap_2d::ObstacleLayer
     - name: inflation_layer
       type: costmap_2d::InflationLayer

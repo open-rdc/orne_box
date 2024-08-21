@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="rosbag" type="record" name="rosbag_record" output="screen"
+	  args="record -b 4096 -o /home/orne-box/rosbag/tsukubaEX/
+	 /tf
+	 /tf_static
+         /odom
+         /imu_data
+         /rfans/surestar_points
+         /rfans/surestar_scan
+         /hokuyo_scan
+         /joy
+         /cmd_vel
+	 /sanwa/image_raw/compressed
+	 /theta/image_raw/compressed
+         "/>
+</launch>

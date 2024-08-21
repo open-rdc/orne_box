@@ -38,7 +38,7 @@
       <param name="filter_limit_max" value="$(arg limit_max)"/>
       <param name="negative" value="true"/>
       <param name="min_x" value="-0.75"/>
-      <param name="max_x" value="0.3"/>
+      <param name="max_x" value="0.4"/>
       <param name="min_y" value="-0.5"/>
       <param name="max_y" value="0.5"/>
       <param name="output_frame" value="$(arg output_frame_id)"/>

@@ -6,8 +6,9 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import IncludeLaunchDescription
-from launch.actions import DeclareLaunchArgument
+
+from launch.actions import DeclareLaunchArgument, SetLaunchConfiguration, GroupAction, IncludeLaunchDescription
+
 from nav2_common.launch import RewrittenYaml
 
 
@@ -25,23 +26,25 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            # 'tsukuba_check_area_res01.yaml'))
-            # 'tsukuba_all_clean_res01.yaml'))
-            # 'tsudanuma_gaisyu_res01.yaml'))
-            # 'tsukuba_park3.yaml'))
-            #'tsukuba_1118.yaml'))
-            #'tsukuba_1119_okunote.yaml'))
             'cit_3f_map.yaml'))
-            #'tsukuba_1119.yaml'))
+            
+    ### add navigation2 ###
+    
+    bt_file_name ='navigate_w_replanning_and_wait.xml'
+    # bt_file_name ='navigate_w_replanning_and_recovery.xml'
 
-    param_file_name = 'nav2_params.yaml'
-
-    param_dir = LaunchConfiguration(
-        'params_file',
+    bt_dir = LaunchConfiguration(
+        'default_bt_xml_filename',
         default=os.path.join(
             config_dir,
-            'params',
-            param_file_name))
+            'behavior_trees',
+            bt_file_name))
+    rviz_config_dir = os.path.join(
+        config_dir,
+        'rviz',
+        'nav2_default_view2.rviz')
+    
+    ### end navigation2 ###
 
     ### add costmap_filter_info ###
 
@@ -60,31 +63,9 @@ def generate_launch_description():
     autostart = LaunchConfiguration('autostart')
     params_file = LaunchConfiguration('params_file')
 
-    # Make re-written yaml
-    param_substitutions = {
-        'use_sim_time': use_sim_time,
-        'yaml_filename': mask_yaml_file}
-
-    configured_params = RewrittenYaml(
-        source_file=params_file,
-        root_key=namespace,
-        param_rewrites=param_substitutions,
-        convert_types=True)
-
     ### end costmap_filter_info ###
-
+    
     return LaunchDescription([
-
-        #navigation2 file
-        DeclareLaunchArgument(
-            'map',
-            default_value=map_dir,
-            description='Full path to map file to load'),
-
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=param_dir,
-            description='Full path to param file to load'),
 
         # add waypoint_manager2
         #Node(
@@ -131,16 +112,16 @@ def generate_launch_description():
             description='Full path to filter mask yaml file to load'),
 
         # Nodes launching commands
-        #Node(
-        #    package='nav2_lifecycle_manager',
-        #    executable='lifecycle_manager',
-        #    name='lifecycle_manager_costmap_filters',
-        #    namespace=namespace,
-        #    output='screen',
-        #    emulate_tty=True,  # https://github.com/ros2/launch/issues/188
-        #    parameters=[{'use_sim_time': use_sim_time},
-        #                {'autostart': autostart},
-        #                {'node_names': lifecycle_nodes}]),
+        Node(
+            package='nav2_lifecycle_manager',
+            executable='lifecycle_manager',
+            name='lifecycle_manager_costmap_filters',
+            namespace=namespace,
+            output='screen',
+            emulate_tty=True,  # https://github.com/ros2/launch/issues/188
+            parameters=[{'use_sim_time': use_sim_time},
+                        {'autostart': autostart},
+                        {'node_names': lifecycle_nodes}]),
 
         Node(
             package='nav2_map_server',
@@ -149,7 +130,12 @@ def generate_launch_description():
             namespace=namespace,
             output='screen',
             emulate_tty=True,  # https://github.com/ros2/launch/issues/188
-            parameters=[configured_params]),
+            parameters=[RewrittenYaml(
+                        source_file=params_file,
+                        root_key=namespace,
+                        param_rewrites={'use_sim_time': use_sim_time,
+                                        'yaml_filename': mask_yaml_file},
+                        convert_types=True)]),
 
         Node(
             package='nav2_map_server',
@@ -158,45 +144,54 @@ def generate_launch_description():
             namespace=namespace,
             output='screen',
             emulate_tty=True,  # https://github.com/ros2/launch/issues/188
-            parameters=[configured_params]),
+            parameters=[RewrittenYaml(
+                        source_file=params_file,
+                        root_key=namespace,
+                        param_rewrites={'use_sim_time': use_sim_time,
+                                        'yaml_filename': mask_yaml_file},
+                        convert_types=True)]),
 
         ### end costmap_filter_info ###
 
-        #navigation2 file
-        #DeclareLaunchArgument(
-        #    'map',
-        #    default_value=map_dir,
-        #    description='Full path to map file to load'),
-
-        #DeclareLaunchArgument(
-        #    'params_file',
-        #    default_value=param_dir,
-        #    description='Full path to param file to load'),
-
-        # add waypoint_manager2
-        #Node(
-        #    package='waypoint_manager2',
-        #    executable='waypoint_manager2_node'
-        #    #name='waypoint_manager2'
-        #),        
-
-        # add costmap
-        #IncludeLaunchDescription(
-        #    PythonLaunchDescriptionSource(
-        #        [launch_file_dir, '/costmap_filter_info.launch.py'])
-        #),
-        #launch.actions.LogInfo(
-        #    msg="Launch costmap filter node."
-        #),
-
-        # add navigation2
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [launch_file_dir, '/navigation2.launch.py'])
+        ### add navigation2 ###
+        
+        DeclareLaunchArgument(
+            'map',
+            default_value=map_dir,
+            description='Full path to map file to load'),
+            
+        SetLaunchConfiguration(
+            name='params_file',
+            value=os.path.join(config_dir, 'params', 'nav2_params.yaml')
         ),
-        launch.actions.LogInfo(
-            msg="Launch navigation2 node."
-        )
+        
+        SetLaunchConfiguration(
+            name='use_sim_time',
+            value='false'
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([launch_file_dir, '/bringup_launch.py']),
+            launch_arguments={
+                'map': map_dir,
+                'use_sim_time': use_sim_time,
+                'use_composition':'True',
+                'params_file': params_file,
+                'emcl2_params_file': params_file,
+                'default_bt_xml_filename':bt_dir}.items(),
+                
+        ),
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen'),
+        
+        ### end navigation2 ###
 
 
     ])
+

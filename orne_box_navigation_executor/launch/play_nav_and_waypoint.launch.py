@@ -27,6 +27,7 @@ def generate_launch_description():
             config_dir,
             'maps',
             'cit_3f_map.yaml'))
+            # 'tsudanuma.yaml'))
             
     ### add navigation2 ###
     
@@ -54,6 +55,8 @@ def generate_launch_description():
             config_dir,
             'maps',
             'cit_3f_map_keepout.yaml'))
+            # 'tsudanuma_for_costmap.yaml'))
+
     # Create our own temporary YAML files that include substitutions
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']
 

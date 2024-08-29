@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     pkg_urdf_package = get_package_share_directory('orne_box_description')
-    urdf_file = os.path.join(pkg_urdf_package, 'urdf', 'orne_box.urdf.xacro')
+    urdf_file = os.path.join(pkg_urdf_package, 'urdf', 'orne_box_3d_lidar_rfans.urdf.xacro')
     
     spawn_entity_node = Node(
         package='gazebo_ros',

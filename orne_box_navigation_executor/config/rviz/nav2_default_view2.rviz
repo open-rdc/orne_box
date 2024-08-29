@@ -16,6 +16,7 @@ Panels:
   - Class: rviz_common/Tool Properties
     Expanded:
       - /Publish Point1
+      - /Interact1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz_common/Views
@@ -152,8 +153,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.4377000033855438
-        Min Value: 0.4377000033855438
+        Max Value: 0.6377000212669373
+        Min Value: 0.6377000212669373
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -556,6 +557,39 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /waypoints
       Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        routes0: true
+        routes1: true
+        routes10: true
+        routes11: true
+        routes12: true
+        routes2: true
+        routes3: true
+        routes4: true
+        routes5: true
+        routes6: true
+        routes7: true
+        routes8: true
+        routes9: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /waypoint_manager2/routes
+      Value: true
+    - Class: rviz_default_plugins/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Interactive Markers Namespace: /waypoint_manager2
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -587,6 +621,8 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /clicked_point
     - Class: nav2_rviz_plugins/GoalTool
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
   Transformation:
     Current:
       Class: rviz_default_plugins/TF
@@ -594,7 +630,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 16.346214294433594
+      Distance: 18.524993896484375
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1

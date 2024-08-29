@@ -26,7 +26,9 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'cit_3f_map.yaml'))
+            'tsudanuma.yaml'))
+            # 'cit_3f_map.yaml'))
+ 
             
     ### add navigation2 ###
     
@@ -53,7 +55,10 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'cit_3f_map_keepout.yaml'))
+            'tsudanuma_for_costmap.yaml'))
+            # 'cit_3f_map_keepout.yaml'))
+            
+
     # Create our own temporary YAML files that include substitutions
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']
 
@@ -68,11 +73,11 @@ def generate_launch_description():
     return LaunchDescription([
 
         # add waypoint_manager2
-        #Node(
-        #    package='waypoint_manager2',
-        #    executable='waypoint_manager2_node'
-        #    #name='waypoint_manager2'
-        #),
+        Node(
+            package='waypoint_manager2',
+            executable='waypoint_manager2_node'
+            #name='waypoint_manager2'
+        ),
 
         # add costmap
         #IncludeLaunchDescription(

@@ -20,7 +20,7 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'cit_3f_map.yaml'))
+            'tsudanuma.yaml'))
 
     param_file_name = 'nav2_params.yaml'
     bt_file_name ='navigate_w_replanning_and_wait.xml'

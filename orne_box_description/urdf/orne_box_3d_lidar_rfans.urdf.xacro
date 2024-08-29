@@ -7,7 +7,7 @@
     <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
     <!-- Setting for 3D-LiDAR -->
     <xacro:VLP-16 parent="base_link" name="surestar" topic="/rfans_points" organize_cloud="false" hz="10" samples="440" gpu="false">
-      <origin xyz="0.23 0 0.40" rpy="0 0 0"/>
+      <origin xyz="-0.12 0 0.60" rpy="0 0 0"/>
     </xacro:VLP-16>
   </xacro:if>
   <xacro:if value="$(arg ignition_gazebo)">
@@ -32,7 +32,7 @@
       </collision>
     </link>
     <joint name="surestar_joint" type="fixed">
-      <origin xyz="0.23 0.0 0.4" rpy="0.0 0.0 0.0"/>
+      <origin xyz="-0.12 0.0 0.6" rpy="0.0 0.0 0.0"/>
       <parent link="base_link"/>
       <child link="surestar"/>
     </joint>
@@ -73,7 +73,7 @@
     </gazebo>
   </xacro:if>
   
-  <xacro:include filename="$(find orne_box_description)/urdf/sensors/gnss.urdf.xacro"/> -->
+  <xacro:include filename="$(find orne_box_description)/urdf/sensors/gnss.urdf.xacro"/> 
   <xacro:include filename="$(find orne_box_description)/urdf/sensors/camera.urdf.xacro"/>
  
   <xacro:sensor_gnss name="gnss" parent="base_link">

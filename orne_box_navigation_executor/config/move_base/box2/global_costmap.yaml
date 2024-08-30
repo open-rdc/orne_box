@@ -17,9 +17,11 @@ global_costmap:
   plugins:
     - name: planner_map_layer
       type: costmap_2d::StaticLayer
+    - name: inflation_layer
+      type: costmap_2d::InflationLayer   
     - name: global_obstacles_layer
       type: costmap_2d::ObstacleLayer
 #    - name: global_cost_cloud_layer
 #      type: costmap_2d::ObstacleLayer
-    - name: inflation_layer
+    - name: global_obstacles_inflation_layer
       type: costmap_2d::InflationLayer

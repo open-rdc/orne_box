@@ -40,7 +40,9 @@
     /odom     (Wheel odometry)
   -->
 
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find orne_box_navigation_executor)/rviz/nav_3d.rviz" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find orne_box_navigation_executor)/rviz/nav_3d.rviz">
+	  <remap from="initialpose" to="initialpose_2d"/>
+  </node>
 
   <node pkg="mcl_3dl" type="mcl_3dl" name="mcl_3dl" output="screen" unless="$(arg generate_test_bag)">
 	  <param name="compatible" value="1" />

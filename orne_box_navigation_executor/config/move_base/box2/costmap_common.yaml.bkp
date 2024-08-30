@@ -47,7 +47,7 @@ global_obstacles_layer:
   raytrace_range: 10.0
   inflation_radius: 0.5
   combination_method: 1
-  observation_sources: cost_cloud
+  observation_sources: hokuyo_laser_scan
   hokuyo_laser_scan:
     data_type: LaserScan
     sensor_frame: hokuyo_link
@@ -57,15 +57,6 @@ global_obstacles_layer:
     min_obstacle_height: &global_min_obstacle_height 0.1
     max_obstacle_height: &global_max_obstacle_height 30.0
     topic: hokuyo_scan
-  cost_cloud:
-    data_type: PointCloud2
-    sensor_frame: surestar
-    marking: true
-    clearing: true
-    inf_is_valid: true
-    min_obstacle_height: -.inf
-    max_obstacle_height: .inf
-    topic: /cost_cloud_process/cost_cloud
 global_obstacles_inflation_layer:
   enabled: true
   use_maximum: true

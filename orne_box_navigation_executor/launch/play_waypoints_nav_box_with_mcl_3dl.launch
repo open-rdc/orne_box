@@ -28,5 +28,6 @@
     <arg name="config_file" value="$(arg waypoint_config)"/>
   </include>
 
+  <include file="$(find pose_estimate_3d)/launch/pose_estimate_3d.launch"/>
 </launch>
 

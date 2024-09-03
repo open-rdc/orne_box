@@ -13,6 +13,9 @@ move_baseを含む自律移動に必要なものがまとめてあるパッケ�
 - [waypoint_manager(main)](https://github.com/open-rdc/waypoint_manager/tree/v2.1.3)
 waypoint関連のさまざまな機能を提供するパッケージ
 
+## map, waypoint, shell
+https://github.com/masakifujiwara1/iias_tsukuba2024/tree/main/script_orne
+
 # orne-box
 Platform hardware for autonomous robot
 

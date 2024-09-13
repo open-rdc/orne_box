@@ -108,7 +108,13 @@ def generate_launch_description():
                     [{
                         "use_mag": False
                     }],
-                output="screen")
+                output="screen"),
+            Node(
+                package='robot_localization',
+                executable='ekf_node',
+                name='ekf_filter_node',
+                output='screen',
+                parameters=[os.path.join(get_package_share_directory("orne_box_bringup"), 'config/robot_localization/', 'ekf.yaml')])        
         ]
     )
 

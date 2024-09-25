@@ -207,7 +207,7 @@ def generate_launch_description():
                     plugin='nav2_controller::ControllerServer',
                     name='controller_server',
                     parameters=[configured_params],
-                    remappings=remappings + [('cmd_vel', 'cmd_vel_nav')]),
+                    remappings=remappings + [('cmd_vel', 'cmd_vel_nav'), ('odom', 'odometry/filtered')]),
                 ComposableNode(
                     package='nav2_smoother',
                     plugin='nav2_smoother::SmootherServer',
@@ -231,7 +231,7 @@ def generate_launch_description():
                     plugin='nav2_bt_navigator::BtNavigator',
                     name='bt_navigator',
                     parameters=[configured_params],
-                    remappings=remappings),
+                    remappings=remappings + [('odom', 'odometry/filtered')]),
                 ComposableNode(
                     package='nav2_waypoint_follower',
                     plugin='nav2_waypoint_follower::WaypointFollower',

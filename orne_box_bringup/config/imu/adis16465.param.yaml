@@ -1,6 +1,6 @@
 /**:
   ros__parameters:
-    device: "/dev/sensors/adis16465"
+    device: "/dev/sensors/imu16465"
     frame_id: "imu"
     burst_mode: true
     publish_temperature: true

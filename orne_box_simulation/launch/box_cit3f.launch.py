@@ -35,6 +35,7 @@ def generate_launch_description():
                          'world', world_file_name)
     launch_file_dir = os.path.join(get_package_share_directory('orne_box_simulation'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    bringup_dir = os.path.join(get_package_share_directory('orne_box_bringup'), 'launch/include')
 
     return LaunchDescription([
         IncludeLaunchDescription(
@@ -51,7 +52,7 @@ def generate_launch_description():
         ),
 
         ExecuteProcess(
-            cmd=['ros2', 'param', 'set', '/gazebo', 'use_sim_time', use_sim_time],
+            cmd=['ros2', 'param', 'set', '/gazebo', 'use_sim_time'],
             output='screen'),
 
         IncludeLaunchDescription(
@@ -61,5 +62,15 @@ def generate_launch_description():
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir,'/spawn_urdf.launch.py'])
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [bringup_dir, '/robot_localization_ekf.launch.py'])
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [bringup_dir, '/teleop.launch.py'])
         )
     ])

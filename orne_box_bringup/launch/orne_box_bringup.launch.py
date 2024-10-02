@@ -84,7 +84,7 @@ def generate_launch_description():
             package='orne_box_bringup',
             executable='icart_mini_driver',
             parameters=[{'odom_frame_id':'odom',
-                        'base_frame_id':'base_footprint',
+                        'base_frame_id':'base_link',
                         'Hz':40,
                         'left_wheel_joint':'left_wheel_joint',
                         'right_wheel_joint':'right_wheel_joint',

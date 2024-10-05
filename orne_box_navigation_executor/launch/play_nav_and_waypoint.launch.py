@@ -26,8 +26,8 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'tsukuba.yaml'))
-            # 'tsudanuma.yaml'))
+            # 'tsukuba.yaml'))
+            'tsudanuma.yaml'))
             # 'cit_3f_map.yaml'))
  
             
@@ -56,8 +56,8 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'tsukuba_keepout.yaml'))
-            # 'tsudanuma_for_costmap.yaml'))
+            # 'tsukuba_keepout.yaml'))
+            'tsudanuma_for_costmap.yaml'))
             # 'cit_3f_map_keepout.yaml'))
             
 
@@ -75,9 +75,15 @@ def generate_launch_description():
     return LaunchDescription([
 
         # add waypoint_manager2
-        Node(
+        #Node(
+        #    package='waypoint_manager2',
+        #    executable='waypoint_manager2_node'
+        #    #name='waypoint_manager2'
+        #),
+
+	Node(
             package='waypoint_manager2',
-            executable='waypoint_manager2_node'
+            executable='traffic_waypoint_manager2_node'
             #name='waypoint_manager2'
         ),
 

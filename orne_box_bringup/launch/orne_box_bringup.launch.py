@@ -92,18 +92,18 @@ def generate_launch_description():
                         'liner_accel_lim':1.5,
                         'angular_vel_lim':3.14,
                         'angular_accel_lim':3.14,
-                        'calculate_odom_from_ypspur':True,
-                        'publish_odom_tf':True
+                        'calculate_odom_from_ypspur':False,
+                        'publish_odom_tf':False
             }]
         ),
         #robot_state_publisher and joint_state_publisher
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/description.launch.py'])
-        ),
-        launch.actions.LogInfo(
-            msg="Launch robot_description  node."
-        ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/description.launch.py'])
+        # ),
+        # launch.actions.LogInfo(
+        #     msg="Launch robot_description  node."
+        # ),
 
         ### start description
         #description_nodes,

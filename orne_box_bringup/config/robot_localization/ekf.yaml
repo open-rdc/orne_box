@@ -20,7 +20,7 @@ ekf_filter_node:
         map_frame: map              # Defaults to "map" if unspecified
         odom_frame: odom            # Defaults to "odom" if unspecified
         base_link_frame: base_link # Defaults to "base_link" if unspecified
-        world_frame: map           # Defaults to the value of odom_frame if unspecified
+        world_frame: odom           # Defaults to the value of odom_frame if unspecified
         
 #         #<wheel_odom>
         odom0: /odom

@@ -87,14 +87,14 @@ def generate_launch_description():
         ],
         parameters=[{
                 'target_frame': '',
-                'transform_tolerance': 0.01,
-                'min_height': -0.15,
-                'max_height': 3.0,
+                'transform_tolerance': 0.1,
+                'min_height': -0.1,
+                'max_height': 0.1,
                 'angle_min': -3.1415,  # -M_PI/2
                 'angle_max': 3.1415,  # M_PI/2
                 'angle_increment': 0.0087,  # M_PI/360.0
                 'scan_time': 0.3333,
-                'range_min': 0.25,
+                'range_min': 0.55,
                 'range_max': 200.0,
                 'use_inf': True,
                 'inf_epsilon': 1.0

@@ -84,7 +84,7 @@ def generate_launch_description():
         default_value=os.path.join(config_dir, 'params', 'nav2_params.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
 
-    declare_emcl2_params_file_cmd = DeclareLaunchArgument(
+    declare_params_file_cmd = DeclareLaunchArgument(
         'emcl2_params_file',
         default_value=os.path.join(config_dir, 'params', 'emcl2_params.yaml'),
         description='Full path to the EMCL2 parameters file to use for all launched nodes')
@@ -131,7 +131,7 @@ def generate_launch_description():
                               'use_sim_time': use_sim_time,
                               'autostart': autostart,
                               'params_file': params_file}.items()),
-        # #use amcl
+        # # use amcl
         # IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource(os.path.join(launch_dir,
         #                                                'localization_launch.py')),
@@ -145,14 +145,14 @@ def generate_launch_description():
         #                       'use_respawn': use_respawn,
         #                       'container_name': 'nav2_container'}.items()
         # ),
-        # #use emcl
+        # # use emcl
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(emcl2_launch_dir,
                                                        'emcl2.launch.py')),
             condition=IfCondition(PythonExpression(['not ', slam])),
-             launch_arguments={'map': map_yaml_file,
-                               'use_sim_time': use_sim_time,
-                               'emcl2_params_file': emcl2_params_file}.items()
+            # launch_arguments={'map': map_yaml_file,
+            #                   'use_sim_time': use_sim_time,
+            #                   'params_file': emcl2_params_file}
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir, 'navigation_launch.py')),
@@ -167,7 +167,6 @@ def generate_launch_description():
                               'map_subscribe_transient_local': 'true',
                               'container_name': 'nav2_container'}.items()
         ),
-                            #   }.items()),
     ])
 
     # Create the launch description and populate
@@ -183,7 +182,6 @@ def generate_launch_description():
     ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_params_file_cmd)
-    # ld.add_action(declare_emcl2_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
     ld.add_action(declare_use_composition_cmd)
     ld.add_action(declare_use_respawn_cmd)

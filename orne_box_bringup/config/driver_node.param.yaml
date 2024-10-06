@@ -1,4 +1,4 @@
 odom_frame_id: odom
-base_frame_id: base_footprint
+base_frame_id: base_link
 hz: 100
 publish_odom_tf: false

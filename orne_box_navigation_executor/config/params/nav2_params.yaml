@@ -64,7 +64,7 @@ amcl_rclcpp_node:
 
 emcl2:
   ros__parameters:
-    odom_freq: 20
+    odom_freq: 40
     transform_tolerance: 0.2
     global_frame_id: "map"
     odom_frame_id: "odom"

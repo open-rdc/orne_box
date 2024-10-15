@@ -92,7 +92,7 @@ def generate_launch_description():
                         'liner_accel_lim':1.5,
                         'angular_vel_lim':3.14,
                         'angular_accel_lim':3.14,
-                        'calculate_odom_from_ypspur':False,
+                        'calculate_odom_from_ypspur':True,
                         'publish_odom_tf':False
             }]
         ),
@@ -142,10 +142,10 @@ def generate_launch_description():
         launch.actions.LogInfo(
             msg="Launch IMU node."
         ),
-        IncludeLaunchDescription(    
-            PythonLaunchDescriptionSource(
-                [launch_include_file_dir, '/imu_filter.launch.py'])
-        ),
+        # IncludeLaunchDescription(    
+        #     PythonLaunchDescriptionSource(
+        #         [launch_include_file_dir, '/imu_filter.launch.py'])
+        # ),
         launch.actions.LogInfo(
             msg="Launch IMU Filter node."
         ),

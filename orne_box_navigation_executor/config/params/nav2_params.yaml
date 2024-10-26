@@ -8,11 +8,11 @@ amcl:
     # alpha4: 0.2
     # alpha5: 0.2
     #real
-    alpha1: 0.6
-    alpha2: 0.1
-    alpha3: 0.2
-    alpha4: 0.3
-    alpha5: 0.2
+    alpha1: 0.05
+    alpha2: 0.05
+    alpha3: 0.05
+    alpha4: 0.05
+    alpha5: 0.05
     base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
@@ -204,13 +204,13 @@ controller_server:
       min_vel_y: 0.0
       max_vel_x: 0.9
       max_vel_y: 0.0
-      max_vel_theta: 1.7
+      max_vel_theta: 0.7
       min_speed_xy: 0.0
       max_speed_xy: 0.9
       min_speed_theta: 0.0
       # Add high threshold velocity for turtlebot 3 issue.
       # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
-      acc_lim_x: 2.5
+      acc_lim_x: 1.0
       acc_lim_y: 0.0
       acc_lim_theta: 3.2
       decel_lim_x: -2.5
@@ -422,9 +422,9 @@ velocity_smoother:
     scale_velocities: False
     feedback: "OPEN_LOOP"
     max_velocity: [0.9, 0.0, 1.7]
-    min_velocity: [-0.9, 0.0, -1.7]
-    max_accel: [2.5, 0.0, 3.2]
-    max_decel: [-2.5, 0.0, -3.2]
+    min_velocity: [-0.9, 0.0, -0.7]
+    max_accel: [1.0, 0.0, 1.0]
+    max_decel: [-2.0, 0.0, -2.0]
     odom_topic: "odom"
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]

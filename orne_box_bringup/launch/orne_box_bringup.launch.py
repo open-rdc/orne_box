@@ -97,18 +97,18 @@ def generate_launch_description():
             }]
         ),
         #robot_state_publisher and joint_state_publisher
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource(
-        #         [launch_include_file_dir, '/description.launch.py'])
-        # ),
-        # launch.actions.LogInfo(
-        #     msg="Launch robot_description  node."
-        # ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [launch_include_file_dir, '/description.launch.py'])
+        ),
+        launch.actions.LogInfo(
+            msg="Launch robot_description  node."
+        ),
 
         ### start description
-        #description_nodes,
-        robot_state_pub_node,
-        joint_state_pub_node,
+        # #description_nodes,
+        # robot_state_pub_node,
+        # joint_state_pub_node,
 
         #mixed wheel_odom and other (IMU etc..)
         IncludeLaunchDescription(
@@ -146,9 +146,9 @@ def generate_launch_description():
         #     PythonLaunchDescriptionSource(
         #         [launch_include_file_dir, '/imu_filter.launch.py'])
         # ),
-        launch.actions.LogInfo(
-            msg="Launch IMU Filter node."
-        ),
+        # launch.actions.LogInfo(
+        #     msg="Launch IMU Filter node."
+        # ),
 
         # add rfans16
         # IncludeLaunchDescription(

@@ -53,7 +53,7 @@ ekf_filter_node:
 #         # twist0_queue_size: 3
 #         # twist0_rejection_threshold: 2.0
 #         # twist0_nodelay: false
-        imu0: /imu/data_raw
+        imu0: /imu/data
         imu0_config:    [false, false, false,
                         false, false, true,
                         true, true, false,

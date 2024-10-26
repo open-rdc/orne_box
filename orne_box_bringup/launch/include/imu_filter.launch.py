@@ -20,6 +20,7 @@ def generate_launch_description():
                 parameters=
                 [{
                     "use_mag": False
+                    "publish_tf": False
                 }],
             )
         ]

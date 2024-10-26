@@ -36,10 +36,23 @@ def generate_launch_description():
         adis16465,
         ]
     )
-
+    
+    imu_filter = Node(
+        package='imu_filter_madgwick',
+        executable='imu_filter_madgwick_node',
+        name='imu_filter',
+        output='screen',
+        parameters=
+        [{
+            "use_mag": False,
+            "publish_tf": False
+        }],
+    )
+        
     ld = LaunchDescription()
     ld.add_action(declare_namespace)
     
     ld.add_action(imu)
+    ld.add_action(imu_filter)
 
     return ld

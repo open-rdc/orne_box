@@ -79,20 +79,20 @@ def generate_launch_description():
         #    #name='waypoint_manager2'
         #),
 
-	Node(
-            package='waypoint_manager2',
-            executable='traffic_waypoint_manager2_node'
-            #name='waypoint_manager2'
-        ),
+        Node(
+                package='waypoint_manager2',
+                executable='traffic_waypoint_manager2_node'
+                #name='waypoint_manager2'
+            ),
 
         # add costmap
-        #IncludeLaunchDescription(
-        #    PythonLaunchDescriptionSource(
-        #        [launch_file_dir, '/costmap_filter_info.launch.py'])
-        #),
-        #launch.actions.LogInfo(
-        #    msg="Launch costmap filter node."
-        #),
+        IncludeLaunchDescription(
+           PythonLaunchDescriptionSource(
+               [launch_file_dir, '/costmap_filter_info.launch.py'])
+        ),
+        launch.actions.LogInfo(
+           msg="Launch costmap filter node."
+        ),
 
 
         ### costmap_filter_info ###

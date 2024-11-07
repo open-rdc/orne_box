@@ -64,10 +64,10 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([launch_file_dir,'/spawn_urdf.launch.py'])
         ),
 
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [bringup_dir, '/robot_localization_ekf.launch.py'])
-        ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         [bringup_dir, '/robot_localization_ekf.launch.py'])
+        # ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(

@@ -14,7 +14,7 @@ def generate_launch_description():
     run_file_dir = get_package_share_directory('waypoint_manager2')
     config_dir = os.path.join(nav_dir, 'config')
 
-    map_pass = 'tsukuba'
+    map_pass = 'cit_3f_map'
 
     map_dir = LaunchConfiguration(
         'map',
@@ -47,7 +47,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         config_dir,
         'rviz',
-        'nav2_default_view2.rviz'
+        'nav2_default_view.rviz'
     )
 
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']

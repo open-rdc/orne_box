@@ -83,7 +83,7 @@
       <sensor type="imu" name="imu">
         <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
           <ros>
-            <remapping>~/out:=imu</remapping>
+            <remapping>~/out:=imu/data</remapping>
           </ros>
           <initial_orientation_as_reference>false</initial_orientation_as_reference>
         </plugin>

@@ -158,7 +158,13 @@ def generate_launch_description():
         # launch.actions.LogInfo(
         #     msg="Launch rfans16 node."
         # ),
-
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [launch_include_file_dir, '/mirror_lidar.launch.py'])
+        ),
+        launch.actions.LogInfo(
+            msg="Launch mirror_lidar  node."
+        ),
         # add rfans16_filters
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(

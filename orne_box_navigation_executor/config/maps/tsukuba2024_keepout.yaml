@@ -1,4 +1,4 @@
-image: tsukuba2024_keepout.png
+image: tsukuba2024_keepout.pgm
 resolution: 0.100000
 origin: [-385, -500, 0]
 negate: 0

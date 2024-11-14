@@ -21,35 +21,24 @@ waypoint_server:
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -2.083490404990156e-06
+      x: -2.0834904049901556e-06
       y: -5.826663572294777e-06
       z: 2.7157577839848988
     id: registed_goal_3
     position:
-      x: -8.269830703735352
-      y: 112.10712432861328
+      x: -8.760445594787598
+      y: 115.98163604736328
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -4.0027603825903605e-06
-      y: -4.691119628530416e-06
-      z: 3.0850057668618693
-    id: registed_goal_3
-    position:
-      x: 8.001886367797852
-      y: 120.93898010253906
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -1.8212932217167871e-06
+      x: -1.8212932217167873e-06
       y: -5.915075732332298e-06
       z: 2.6701256840587138
     id: registed_goal_3
     position:
-      x: 8.2900972366333
-      y: 131.0870361328125
+      x: 10.766806602478027
+      y: 125.30934143066406
       z: -3
     properties:
       goal_radius: 1.5
@@ -59,8 +48,8 @@ waypoint_server:
       z: 2.154388964696939
     id: registed_goal_3
     position:
-      x: 7.483800888061523
-      y: 140.02944946289062
+      x: 7.926377773284912
+      y: 138.61050415039062
       z: -3
     properties:
       goal_radius: 1.5
@@ -70,8 +59,8 @@ waypoint_server:
       z: 2.029073512754569
     id: registed_goal_3
     position:
-      x: 12.066407203674316
-      y: 144.48219299316406
+      x: 11.041000366210938
+      y: 145.8160400390625
       z: -3
     properties:
       goal_radius: 1.5
@@ -81,19 +70,8 @@ waypoint_server:
       z: 2.029073512754569
     id: registed_goal_3
     position:
-      x: 12.369608879089355
-      y: 163.79127502441406
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 2.0079187843866704e-06
-      y: -5.858505601308295e-06
-      z: 2.029073512754569
-    id: registed_goal_3
-    position:
-      x: 12.03203296661377
-      y: 168.46292114257812
+      x: 12.105928421020508
+      y: 162.78146362304688
       z: -3
     properties:
       goal_radius: 1.5
@@ -103,41 +81,8 @@ waypoint_server:
       z: 2.1016271493809318
     id: registed_goal_3
     position:
-      x: 10.654799461364746
-      y: 174.21197509765625
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 5.035326670345284e-06
-      y: 3.2852469575850307e-06
-      z: 0.2004045408758065
-    id: registed_goal_3
-    position:
-      x: 25.340438842773438
-      y: 175.2944793701172
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.5866539416790251e-06
-      y: -5.986859735296335e-06
-      z: 2.1016271493809318
-    id: registed_goal_3
-    position:
-      x: 40.891868591308594
-      y: 177.74456787109375
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.8322272524986862e-06
-      y: -5.914496373105038e-06
-      z: 2.059400613260182
-    id: registed_goal_3
-    position:
-      x: 60.915252685546875
-      y: 180.72373962402344
+      x: 10.670136451721191
+      y: 173.60848999023438
       z: -3
     properties:
       goal_radius: 1.5
@@ -164,57 +109,13 @@ waypoint_server:
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -3.827445496548261e-07
+      x: -3.8274454965482596e-07
       y: -6.198056879069824e-06
       z: 2.428182089143497
     id: registed_goal_3
     position:
-      x: 80.61311340332031
-      y: 164.6880340576172
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -5.9598503702925386e-06
-      y: 1.1389859506660827e-06
-      z: -2.139038832879086
-    id: registed_goal_3
-    position:
-      x: 82.06938934326172
-      y: 151.44512939453125
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.7332604124678802e-06
-      y: -5.958376526393749e-06
-      z: 2.0767310458946557
-    id: registed_goal_3
-    position:
-      x: 84.33120727539062
-      y: 135.1669464111328
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -3.827445496548261e-07
-      y: -6.198056879069824e-06
-      z: 2.428182089143497
-    id: registed_goal_3
-    position:
-      x: 86.9034194946289
-      y: 112.28148651123047
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -3.827445496548261e-07
-      y: -6.198056879069824e-06
-      z: 2.428182089143497
-    id: registed_goal_3
-    position:
-      x: 88.85742950439453
-      y: 97.24417877197266
+      x: 80.69597625732422
+      y: 165.45578002929688
       z: -3
     properties:
       goal_radius: 1.5
@@ -224,52 +125,30 @@ waypoint_server:
       z: 2.7870998043044004
     id: registed_goal_3
     position:
-      x: 93.60824584960938
-      y: 95.2947998046875
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -3.827445496548261e-07
-      y: -6.198056879069824e-06
-      z: 2.428182089143497
-    id: registed_goal_3
-    position:
-      x: 94.37505340576172
-      y: 87.39946746826172
+      x: 92.80835723876953
+      y: 95.18782043457031
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
       x: 3.778983324696337e-06
       y: -4.887377956785954e-06
-      z: 1.6953630443941134
+      z: 1.6953630443941132
     id: registed_goal_3
     position:
-      x: 94.98363494873047
-      y: 79.27874755859375
+      x: 99.66252136230469
+      y: 79.74866485595703
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -2.6616193805339874e-06
-      y: -5.5930849622853884e-06
-      z: 2.822909042226875
+      x: 3.778983324696337e-06
+      y: -4.887377956785954e-06
+      z: 1.6953630443941132
     id: registed_goal_3
     position:
-      x: 78.4985122680664
-      y: 77.94064331054688
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -4.186999404766438e-06
-      y: -4.5341389820485745e-06
-      z: 3.1287780453513454
-    id: registed_goal_3
-    position:
-      x: 62.41865921020508
-      y: 75.82695770263672
+      x: 95.62409973144531
+      y: 79.01626586914062
       z: -3
     properties:
       goal_radius: 1.5
@@ -301,8 +180,8 @@ waypoint_server:
       z: 3.1287780453513454
     id: registed_goal_3
     position:
-      x: 32.37031555175781
-      y: 69.46808624267578
+      x: 29.466785430908203
+      y: 66.21503448486328
       z: -3
     properties:
       goal_radius: 1.5

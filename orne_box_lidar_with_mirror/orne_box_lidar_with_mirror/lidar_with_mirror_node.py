@@ -68,7 +68,7 @@ class AnomalyDetectionNode(Node):
         super().__init__('anomaly_detection_node')
         self.subscription = self.create_subscription(
             LaserScan,
-            '/scan',
+            '/mirror_scan',
             self.lidar_callback,
             10)
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)

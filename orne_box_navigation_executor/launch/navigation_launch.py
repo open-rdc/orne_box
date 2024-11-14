@@ -122,7 +122,7 @@ def generate_launch_description():
                 respawn=use_respawn,
                 respawn_delay=2.0,
                 parameters=[configured_params],
-                remappings=remappings + [('cmd_vel', 'cmd_vel_nav')]),
+                remappings=remappings + [('cmd_vel', 'cmd_vel_nav'), ('odom', 'odometry/filtered')]),
             Node(
                 package='nav2_smoother',
                 executable='smoother_server',
@@ -166,7 +166,7 @@ def generate_launch_description():
                 respawn=use_respawn,
                 respawn_delay=2.0,
                 parameters=[configured_params],
-                remappings=remappings),
+                remappings=remappings + [('odom', 'odometry/filtered')]),
 
             Node(
                 package='nav2_waypoint_follower',
@@ -253,5 +253,5 @@ def generate_launch_description():
                                 'autostart': autostart,
                                 'node_names': lifecycle_nodes}]),
             ],
-    )
+        )
     ])

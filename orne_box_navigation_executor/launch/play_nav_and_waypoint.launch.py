@@ -26,7 +26,7 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'tsukuba.yaml'))
+            'cit_3f_map.yaml'))
 
  
             
@@ -55,7 +55,7 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'tsukuba_keepout.yaml'))
+            'cit_3f_map_keepout.yaml'))
 
             
 

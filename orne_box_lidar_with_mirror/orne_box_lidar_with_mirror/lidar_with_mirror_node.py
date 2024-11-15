@@ -73,7 +73,7 @@ class AnomalyDetectionNode(Node):
             10)
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
 
-        input_dim = 723  # LiDARデータのビーム数に合わせる
+        input_dim = 57  # LiDARデータのビーム数に合わせる
 
         # モデルの保存・ロードパスを設定
         package_dir = get_package_share_directory('orne_box_lidar_with_mirror')
@@ -101,7 +101,7 @@ class AnomalyDetectionNode(Node):
                 print(f"Model file not found at {model_path}. Please train and save the model first.")
         
         # 異常判定のしきい値
-        self.threshold = 0.1  # 適切に設定（再構築誤差を基に調整可能）
+        self.threshold = 0.08  # 適切に設定（再構築誤差を基に調整可能）
 
     def lidar_callback(self, msg):
         # LiDARデータをPyTorchテンソルに変換
@@ -123,7 +123,7 @@ class AnomalyDetectionNode(Node):
         self.get_logger().info(f'Reconstruction Loss: {loss}')
 
         # 異常かどうかを判定
-        if loss > self.threshold:
+        if loss < self.threshold:
             self.get_logger().info('Anomaly detected! Stopping the robot.')
             self.stop_robot()
         else:

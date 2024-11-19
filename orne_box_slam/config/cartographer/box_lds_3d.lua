@@ -19,7 +19,7 @@ options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "base_link",
+  tracking_frame = "imu",
   published_frame = "base_footprint",
   odom_frame = "odom",
   provide_odom_frame = false,
@@ -43,10 +43,10 @@ options = {
   landmarks_sampling_ratio = 1.,
 }
 
-TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 160
+TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
 
 MAP_BUILDER.use_trajectory_builder_3d = true
-MAP_BUILDER.num_background_threads = 7
+MAP_BUILDER.num_background_threads = 15
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
 POSE_GRAPH.optimize_every_n_nodes = 320
 POSE_GRAPH.constraint_builder.sampling_ratio = 0.03

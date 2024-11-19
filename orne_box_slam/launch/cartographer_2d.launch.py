@@ -7,22 +7,30 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import ThisLaunchFileDir
-
+from launch_ros.parameters_type import ParameterValue
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSDurabilityPolicy
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     cartographer_prefix = get_package_share_directory('orne_box_slam')
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
-                                                  cartographer_prefix, 'config','cartographer'))
-    configuration_basename = LaunchConfiguration('configuration_basename',
-                                                 default='box_lds_2d.lua')
+                                                  cartographer_prefix, 'config', 'cartographer'))
+    configuration_basename = LaunchConfiguration('configuration_basename', default='box_lds_2d.lua')
 
-    resolution = LaunchConfiguration('resolution', default='0.05')
+    resolution = LaunchConfiguration('resolution', default='0.1')
     publish_period_sec = LaunchConfiguration('publish_period_sec', default='1.0')
 
     rviz_config_dir = os.path.join(get_package_share_directory('orne_box_slam'),
-                                   'config', 'rviz','cartographer.rviz')
+                                   'config', 'rviz', 'cartographer.rviz')
     launch_include_file_dir = os.path.join(get_package_share_directory('orne_box_bringup'), 'launch/include') 
+    
+    # Define QoS profile
+    qos_profile = QoSProfile(
+        reliability=QoSReliabilityPolicy.RELIABLE,
+        durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
+        depth=1
+    )
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'cartographer_config_dir',
@@ -45,8 +53,13 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time}],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename],
-            remappings=[('/scan','/surestar_scan')]
-            ),
+            remappings=[('/scan', '/surestar_scan'),
+                        ('/odom','/odometry/filtered')
+                        ],
+            qos_overrides={
+                '/scan': qos_profile,
+            }
+        ),
         DeclareLaunchArgument(
             'resolution',
             default_value=resolution,
@@ -72,5 +85,9 @@ def generate_launch_description():
             name='rviz2',
             arguments=['-d', rviz_config_dir],
             parameters=[{'use_sim_time': use_sim_time}],
-            output='screen'),
+            output='screen',
+            qos_overrides={
+                '/map': qos_profile,
+            }
+        ),
     ])

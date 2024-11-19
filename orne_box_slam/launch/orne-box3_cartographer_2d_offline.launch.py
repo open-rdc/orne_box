@@ -10,12 +10,12 @@ from launch.substitutions import ThisLaunchFileDir
 
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     cartographer_prefix = get_package_share_directory('orne_box_slam')
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
                                                   cartographer_prefix, 'config','cartographer'))
     configuration_basename = LaunchConfiguration('configuration_basename',
-                                                 default='orne-box3_3d.lua')
+                                                 default='orne-box3_2d.lua')
 
     resolution = LaunchConfiguration('resolution', default='0.1')
     publish_period_sec = LaunchConfiguration('publish_period_sec', default='1.0')
@@ -34,29 +34,18 @@ def generate_launch_description():
             description='Name of lua file for cartographer'),
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='true',
+            default_value='false',
             description='Use simulation (Gazebo) clock if true'),
 
-        # Node(
-        #     package='cartographer_ros',
-        #     executable='cartographer_node',
-        #     name='cartographer_node',
-        #     output='screen',
-        #     parameters=[{'use_sim_time': use_sim_time}],
-        #     arguments=['-configuration_directory', cartographer_config_dir,
-        #                '-configuration_basename', configuration_basename],
-        #     remappings=[('/scan','/rfans_scan')]
-        #     ),
         Node(
-            package = 'cartographer_ros',
-            executable = 'cartographer_node',
-            parameters = [{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+            package='cartographer_ros',
+            executable='cartographer_node',
+            name='cartographer_node',
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time}],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename],
-            remappings = [
-                ('/points2', '/surestar_points'),
-                ('/imu','/imu/data')],
-            output = 'screen'
+            remappings=[('/scan','/surestar_scan')]
             ),
         DeclareLaunchArgument(
             'resolution',
@@ -70,6 +59,11 @@ def generate_launch_description():
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/occupancy_grid.launch.py']),
+            launch_arguments={'use_sim_time': use_sim_time, 'resolution': resolution,
+                              'publish_period_sec': publish_period_sec}.items(),
+        ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/offline_node.launch.py']),
             launch_arguments={'use_sim_time': use_sim_time, 'resolution': resolution,
                               'publish_period_sec': publish_period_sec}.items(),
         ),

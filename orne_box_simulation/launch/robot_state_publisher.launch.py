@@ -10,7 +10,7 @@ def generate_launch_description():
 
     packages_name = "orne_box_description"
     xacro_file_name = "orne_box_3d_lidar_rfans.urdf.xacro"
-    rviz_file_name = "urdf.rviz"
+    # rviz_file_name = "urdf.rviz"
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -24,9 +24,9 @@ def generate_launch_description():
     )
     robot_description = {"robot_description": robot_description_content}
 
-    rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(packages_name), "rviz", rviz_file_name]
-    )
+    # rviz_config_file = PathJoinSubstitution(
+    #     [FindPackageShare(packages_name), "rviz", rviz_file_name]
+    # )
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -45,16 +45,16 @@ def generate_launch_description():
         executable="joint_state_publisher",
         output="screen",
     )
-    rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="log",
-        arguments=["-d", rviz_config_file],
-    )
+    # rviz_node = Node(
+    #     package="rviz2",
+    #     executable="rviz2",
+    #     name="rviz2",
+    #     output="log",
+    #     arguments=["-d", rviz_config_file],
+    # )
     
     nodes = [
-        rviz_node,
+        # rviz_node,
         robot_state_pub_node,
         # joint_state_pub_gui_node
         joint_state_pub_node

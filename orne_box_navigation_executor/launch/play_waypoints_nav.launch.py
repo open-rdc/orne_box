@@ -11,7 +11,6 @@ from nav2_common.launch import RewrittenYaml
 def generate_launch_description():
     nav_dir = get_package_share_directory('orne_box_navigation_executor')
     launch_file_dir = os.path.join(get_package_share_directory('orne_box_navigation_executor'), 'launch')
-    run_file_dir = get_package_share_directory('waypoint_manager2')
     config_dir = os.path.join(nav_dir, 'config')
 
     map_pass = 'tsukuba2024'

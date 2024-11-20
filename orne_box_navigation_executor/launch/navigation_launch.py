@@ -28,6 +28,7 @@ def generate_launch_description():
     use_respawn = LaunchConfiguration('use_respawn')
     default_bt_xml_filename = LaunchConfiguration('default_bt_xml_filename')
     map_subscribe_transient_local = LaunchConfiguration('map_subscribe_transient_local')
+    costmap = LaunchConfiguration('costmap')
 
     lifecycle_nodes = ['controller_server',
                        'smoother_server',
@@ -36,7 +37,8 @@ def generate_launch_description():
                        'behavior_server',
                        'bt_navigator',
                        'waypoint_follower',
-                       'velocity_smoother']
+                       'velocity_smoother',
+                       'map_server_for_costmap']
 
     # Map fully qualified names to relative ones so the node's namespace can be prepended.
     # In case of the transforms (tf), currently, there doesn't seem to be a better alternative
@@ -195,6 +197,13 @@ def generate_launch_description():
                 parameters=[{'use_sim_time': use_sim_time},
                             {'autostart': autostart},
                             {'node_names': lifecycle_nodes}]),
+            Node(
+                package='nav2_map_server',
+                executable='map_server',
+                name='map_server_for_costmap',
+                output='screen',
+                parameters=[{'yaml_filename': costmap, 'map_subscribe_transient_local': True}],
+                remappings=[('map', 'map_for_costmap')]),
             ]
         ),
 
@@ -252,6 +261,12 @@ def generate_launch_description():
                     parameters=[{'use_sim_time': use_sim_time,
                                 'autostart': autostart,
                                 'node_names': lifecycle_nodes}]),
+                ComposableNode(
+                    package='nav2_map_server',
+                    plugin='nav2_map_server::MapServer',
+                    name='map_server_for_costmap',
+                    parameters=[{'yaml_filename': costmap, 'map_subscribe_transient_local': True}],
+                    remappings=[('map', 'map_for_costmap')]),
             ],
         )
     ])

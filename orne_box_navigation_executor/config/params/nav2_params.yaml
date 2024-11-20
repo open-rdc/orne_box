@@ -250,6 +250,7 @@ controller_server:
 global_costmap:
   global_costmap:
     ros__parameters:
+      map_topic: /map_for_costmap
       update_frequency: 2.55055
       publish_frequency: 2.0
       global_frame: map

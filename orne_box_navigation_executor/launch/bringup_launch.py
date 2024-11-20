@@ -28,6 +28,7 @@ def generate_launch_description():
     use_namespace = LaunchConfiguration('use_namespace')
     slam = LaunchConfiguration('slam')
     map_yaml_file = LaunchConfiguration('map')
+    costmap_yaml_file = LaunchConfiguration('costmap')
     use_sim_time = LaunchConfiguration('use_sim_time')
     params_file = LaunchConfiguration('params_file')
     
@@ -72,7 +73,14 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
+        default_value=map_yaml_file,
         description='Full path to map yaml file to load')
+    
+    declare_costmap_yaml_cmd = DeclareLaunchArgument(
+        'costmap',
+        default_value=costmap_yaml_file,
+        description='Full path to map yaml file to load')
+
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
@@ -150,9 +158,9 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(os.path.join(emcl2_launch_dir,
                                                        'emcl2.launch.py')),
             condition=IfCondition(PythonExpression(['not ', slam])),
-            # launch_arguments={'map': map_yaml_file,
-            #                   'use_sim_time': use_sim_time,
-            #                   'params_file': emcl2_params_file}
+            launch_arguments={'map': map_yaml_file,
+                              'use_sim_time': use_sim_time,
+                              'params_file': emcl2_params_file}.items()
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir, 'navigation_launch.py')),
@@ -164,7 +172,8 @@ def generate_launch_description():
                               'use_composition': use_composition,
                               'use_respawn': use_respawn,
                             #   'use_lifecycle_mgr': 'false',
-                              'map_subscribe_transient_local': 'true',
+                              'costmap': costmap_yaml_file,
+                              'map_subscribe_transient_local': 'ture',
                               'container_name': 'nav2_container'}.items()
         ),
     ])
@@ -180,6 +189,7 @@ def generate_launch_description():
     ld.add_action(declare_use_namespace_cmd)
     ld.add_action(declare_slam_cmd)
     ld.add_action(declare_map_yaml_cmd)
+    ld.add_action(declare_costmap_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_autostart_cmd)

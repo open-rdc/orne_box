@@ -11,47 +11,20 @@ from nav2_common.launch import RewrittenYaml
 def generate_launch_description():
     nav_dir = get_package_share_directory('orne_box_navigation_executor')
     launch_file_dir = os.path.join(get_package_share_directory('orne_box_navigation_executor'), 'launch')
-    run_file_dir = get_package_share_directory('waypoint_manager2')
     config_dir = os.path.join(nav_dir, 'config')
 
-    # map_pass = 'tsukuba2024'
+    map_pass = 'tsukuba2024'
     # map_pass = 'cit_3f_map'
-    map_pass = 'tsudanuma_all'
-
-    map_data = LaunchConfiguration(
-        'map',
-        default=os.path.join(
-            config_dir,
-            'maps',
-            map_pass + '.yaml'
-        )
-    )
-
-    costmap_data = LaunchConfiguration(
-        'costmap',
-        default=os.path.join(
-            config_dir,
-            'maps',
-            map_pass + '_keepout.yaml'
-        )
-    )
-    
+    # WAYPOI    NT_PATH = 'tsukuba2024_all'
+    # WAYPOINT_PATH = 'tsudanuma2-3'
     bt_file_name ='navigate_w_replanning_and_wait.xml'
 
-    bt_dir = LaunchConfiguration(
-        'default_bt_xml_filename',
-        default=os.path.join(
-            config_dir,
-            'behavior_trees',
-            bt_file_name
-        )
-    )
-    rviz_config_dir = os.path.join(
-        config_dir,
-        'rviz',
-        'nav2_default_view.rviz'
-    )
-
+    map_data = LaunchConfiguration('map', default=os.path.join(config_dir, 'maps', map_pass + '.yaml'))
+    costmap_data = LaunchConfiguration('mask', default=os.path.join(config_dir, 'maps', map_pass + '_keepout.yaml'))
+    # waypoint_file = os.path.join(config_dir, 'waypoints', f'{WAYPOINT_PATH}.yaml')
+    bt_dir = LaunchConfiguration('default_bt_xml_filename', default=os.path.join(config_dir, 'behavior_trees', bt_file_name))
+    rviz_config_dir = os.path.join(config_dir, 'rviz', 'nav2_default_view2.rviz')
+    
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']
 
     namespace = LaunchConfiguration('namespace')
@@ -60,11 +33,16 @@ def generate_launch_description():
     params_file = LaunchConfiguration('params_file')
  
     return LaunchDescription([
-        Node(
-                package='waypoint_manager2',
-                executable='traffic_waypoint_manager2_node'
-                #name='waypoint_manager2'
+        # waypoint_manager2
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([launch_file_dir, '/waypoint_manager2.launch.py']),
+            # launch_arguments={
+            #     'waypoint_path': waypoint_file,
+            #     'overwrite': 'True',
+            #     'wp_feedback_visible': 'True',
+            # }.items()
         ),
+
         DeclareLaunchArgument(
             'namespace',
             default_value='',
@@ -156,6 +134,10 @@ def generate_launch_description():
                 'params_file': params_file,
                 'emcl2_params_file': params_file,
                 'default_bt_xml_filename':bt_dir}.items(),            
+        ),
+        # ジョイスティックコマンド(Joyで/next_wpを送る)
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([launch_file_dir, '/joy_command.launch.py'])
         ),
         Node(
             package='rviz2',

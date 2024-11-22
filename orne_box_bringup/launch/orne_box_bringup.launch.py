@@ -38,6 +38,9 @@ def generate_launch_description():
         ExecuteProcess(cmd=[ypspur_coordinator_path, ypspur_param], shell=True),
         LogInfo(msg="Launch icart_mini_driver node."),
         icart_driver_node,
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([include_dir, '/description.launch.py'])
+        ),
         LogInfo(msg="Launch robot description nodes."),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([include_dir, '/robot_localization_ekf.launch.py'])
@@ -47,14 +50,14 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([include_dir, '/teleop.launch.py'])
         ),
         LogInfo(msg="Launch teleop node."),
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource([include_dir, '/urg_node2.launch.py'])
-        # ),
-        # LogInfo(msg="Launch URG node."),
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([include_dir, '/mirror_lidar.launch.py'])
+            PythonLaunchDescriptionSource([include_dir, '/urg_node2.launch.py'])
         ),
-        LogInfo(msg="Launch mirror_lidar node."),
+        LogInfo(msg="Launch URG node."),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource([include_dir, '/mirror_lidar.launch.py'])
+        # ), 
+        # LogInfo(msg="Launch mirror_lidar node."),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([include_dir, '/adis16465.launch.py'])
         ),
@@ -62,7 +65,7 @@ def generate_launch_description():
         # IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource([include_dir, '/rfans16.launch.py'])
         # ),
-        # LogInfo(msg="Launch rfans16 node."),
+        LogInfo(msg="Launch rfans16 node."),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([include_dir, '/rfans16_filters.launch.py'])
         ),

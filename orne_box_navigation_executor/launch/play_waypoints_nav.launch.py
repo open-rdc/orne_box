@@ -15,13 +15,13 @@ def generate_launch_description():
 
     map_pass = 'tsukuba2024'
     # map_pass = 'cit_3f_map'
-    # waypoint_path = 'tsukuba2024_all'
-    WAYPOINT_PATH = 'tsudanuma2-3'
+    # WAYPOINT_PATH = 'tsukuba2024_all'
+    # WAYPOINT_PATH = 'tsudanuma2-3'
     bt_file_name ='navigate_w_replanning_and_wait.xml'
 
     map_dir = LaunchConfiguration('map', default=os.path.join(config_dir, 'maps', map_pass + '.yaml'))
     mask_yaml_file = LaunchConfiguration('mask', default=os.path.join(config_dir, 'maps', map_pass + '_keepout.yaml'))
-    waypoint_file = os.path.join(config_dir, 'waypoints', f'{WAYPOINT_PATH}.yaml')
+    # waypoint_file = os.path.join(config_dir, 'waypoints', f'{WAYPOINT_PATH}.yaml')
     bt_dir = LaunchConfiguration('default_bt_xml_filename', default=os.path.join(config_dir, 'behavior_trees', bt_file_name))
     rviz_config_dir = os.path.join(config_dir, 'rviz', 'nav2_default_view2.rviz')
     
@@ -36,16 +36,11 @@ def generate_launch_description():
         # waypoint_manager2
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir, '/waypoint_manager2.launch.py']),
-            launch_arguments={
-                'waypoint_path': waypoint_file,
-                'overwrite': 'True',
-                'wp_feedback_visible': 'True',
-            }.items()
-        ),
-
-        # ジョイスティックコマンド(Joyで/next_wpを送る)
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/joy_command.launch.py'])
+            # launch_arguments={
+            #     'waypoint_path': waypoint_file,
+            #     'overwrite': 'True',
+            #     'wp_feedback_visible': 'True',
+            # }.items()
         ),
 
         DeclareLaunchArgument(
@@ -133,6 +128,10 @@ def generate_launch_description():
                 'params_file': params_file,
                 'emcl2_params_file': params_file,
                 'default_bt_xml_filename':bt_dir}.items(),            
+        ),
+        # ジョイスティックコマンド(Joyで/next_wpを送る)
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([launch_file_dir, '/joy_command.launch.py'])
         ),
         Node(
             package='rviz2',

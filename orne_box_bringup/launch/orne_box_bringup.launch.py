@@ -65,7 +65,7 @@ def generate_launch_description():
         # IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource([include_dir, '/rfans16.launch.py'])
         # ),
-        LogInfo(msg="Launch rfans16 node."),
+        # LogInfo(msg="Launch rfans16 node."),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([include_dir, '/rfans16_filters.launch.py'])
         ),

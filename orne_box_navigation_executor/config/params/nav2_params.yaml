@@ -64,7 +64,7 @@ amcl_rclcpp_node:
 
 emcl2:
   ros__parameters:
-    odom_freq: 40
+    odom_freq: 10
     transform_tolerance: 0.2
     global_frame_id: "map"
     odom_frame_id: "odom"
@@ -256,7 +256,7 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: True
-      footprint: "[ [-0.3, -0.3775], [-0.3, 0.3775], [0.6, 0.2775], [0.6, -0.2775] ]"
+      footprint: "[ [-0.3, -0.2775], [-0.3, 0.2775], [0.6, 0.2775], [0.6, -0.2775] ]"
       resolution: 0.1
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
@@ -268,7 +268,7 @@ global_costmap:
         observation_sources: scan
         scan:
           # topic: /scan
-          topic: /scan
+          topic: /low_scan
           obstacle_max_range: 2.5
           obstacle_min_range: 0.0
           raytrace_max_range: 3.0
@@ -310,7 +310,7 @@ local_costmap:
       width: 10
       height: 10
       resolution: 0.1
-      footprint: "[ [-0.3, -0.3775], [-0.3, 0.3775], [0.6, 0.2775], [0.6, -0.2775] ]"
+      footprint: "[ [-0.3, -0.2775], [-0.3, 0.2775], [0.6, 0.2775], [0.6, -0.2775] ]"
       plugins: ["obstacle_layer", "inflation_layer"]
       #keepout
       filters: ["keepout_filter"]

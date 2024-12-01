@@ -14,7 +14,7 @@ def generate_launch_description():
     config_dir = os.path.join(nav_dir, 'config')
 
     map_pass = 'tsudanuma_all'
-    # map_pass = 'tsukuba2024'
+    # map_pass = 'tsukuba2024_all'
     # map_pass = 'cit_3f_map'
     # WAYPOI    NT_PATH = 'tsukuba2024_all'
     # WAYPOINT_PATH = 'tsudanuma2-3'

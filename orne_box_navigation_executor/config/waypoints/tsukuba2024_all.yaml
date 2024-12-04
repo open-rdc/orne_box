@@ -15,41 +15,8 @@ waypoint_server:
       z: 0.5430034680495573
     id: registed_goal_1
     position:
-      x: 181.1981201171875
-      y: -294.0234069824219
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.0699982058532061e-07
-      y: -2.8704200039086913e-07
-      z: 0.5430034680495573
-    id: registed_goal_1
-    position:
-      x: 189.24676513671875
-      y: -310.9707946777344
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 9.967620507939198e-08
-      y: 5.712060513474171e-08
-      z: -1.5257771626051955
-    id: registed_goal_1
-    position:
-      x: 201.87625122070312
-      y: -309.5311584472656
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.0699982058532061e-07
-      y: -2.8704200039086913e-07
-      z: 0.5430034680495573
-    id: registed_goal_1
-    position:
-      x: 206.5653533935547
-      y: -311.7038269042969
+      x: 180.4468536376953
+      y: -294.402587890625
       z: -3
     properties:
       goal_radius: 1.5
@@ -59,8 +26,19 @@ waypoint_server:
       z: 0.31674823250449125
     id: registed_goal_1
     position:
-      x: 236.3397674560547
-      y: -312.48773193359375
+      x: 235.5067596435547
+      y: -311.935791015625
+      z: -3
+    properties:
+      goal_radius: 1.5
+  - euler_angles:
+      x: -1.2932166882834892e-07
+      y: -4.822034240792306e-07
+      z: 1.2890576006206662
+    id: registed_goal_1
+    position:
+      x: 247.08230590820312
+      y: -382.2752990722656
       z: -3
     properties:
       goal_radius: 1.5
@@ -70,8 +48,8 @@ waypoint_server:
       z: -1.9799948110209986
     id: registed_goal_1
     position:
-      x: 245.7317352294922
-      y: -381.8238220214844
+      x: 235.38519287109375
+      y: -383.0196838378906
       z: -3
     properties:
       goal_radius: 1.5
@@ -81,8 +59,8 @@ waypoint_server:
       z: -1.9799948110209986
     id: registed_goal_1
     position:
-      x: 226.52613830566406
-      y: -382.118408203125
+      x: 160.3448486328125
+      y: -394.9552001953125
       z: -3
     properties:
       goal_radius: 1.5
@@ -92,8 +70,8 @@ waypoint_server:
       z: -1.9799948110209986
     id: registed_goal_1
     position:
-      x: 160.7849884033203
-      y: -392.53759765625
+      x: 140.92288208007812
+      y: -395.846435546875
       z: -3
     properties:
       goal_radius: 1.5
@@ -103,52 +81,8 @@ waypoint_server:
       z: -1.9799948110209986
     id: registed_goal_1
     position:
-      x: 146.57510375976562
-      y: -400.1631164550781
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.7239218783639178e-08
-      y: 2.0958060908959908e-07
-      z: -1.9799948110209986
-    id: registed_goal_1
-    position:
-      x: 141.79168701171875
-      y: -401.1014709472656
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.7239218783639178e-08
-      y: 2.0958060908959908e-07
-      z: -1.9799948110209986
-    id: registed_goal_1
-    position:
-      x: 137.56846618652344
-      y: -352.4847106933594
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.7239218783639178e-08
-      y: 2.0958060908959908e-07
-      z: -1.9799948110209986
-    id: registed_goal_1
-    position:
-      x: 135.33750915527344
-      y: -350.93389892578125
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.7239218783639178e-08
-      y: 2.0958060908959908e-07
-      z: -1.9799948110209986
-    id: registed_goal_1
-    position:
-      x: 127.62374877929688
-      y: -327.1193542480469
+      x: 126.940673828125
+      y: -331.24041748046875
       z: -3
     properties:
       goal_radius: 1.5
@@ -158,8 +92,8 @@ waypoint_server:
       z: -2.652440251325763
     id: registed_goal_1
     position:
-      x: 103.17921447753906
-      y: -331.25048828125
+      x: 101.83242797851562
+      y: -333.2426452636719
       z: -3
     properties:
       Stop_wp: Stop_ON
@@ -170,37 +104,26 @@ waypoint_server:
       z: -1.9799948110209986
     id: registed_goal_1
     position:
-      x: 78.77360534667969
-      y: -346.2314147949219
+      x: 77.97144317626953
+      y: -346.9601135253906
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -1.5450806772428448e-07
-      y: 1.7627509651951812e-07
-      z: -2.3766176652493574
+      x: -1.5450806840714074e-07
+      y: 1.762750956313397e-07
+      z: -2.3766176760545097
     id: registed_goal_1
     position:
-      x: -93.54741668701172
-      y: -369.594970703125
+      x: -92.63189697265625
+      y: -370.05963134765625
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -2.9454070329867244e-07
-      y: -2.671247696373058e-07
-      z: 2.3475770995261755
-    id: registed_goal_1
-    position:
-      x: -99.73185729980469
-      y: -363.0343322753906
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.9454070329867244e-07
-      y: -2.671247696373058e-07
-      z: 2.3475770995261755
+      x: -1.4043351614421436e-07
+      y: -4.1751089896457927e-07
+      z: 1.6822730295323534
     id: registed_goal_1
     position:
       x: -112.30335998535156
@@ -210,13 +133,37 @@ waypoint_server:
       Stop_wp: Stop_ON
       goal_radius: 1.5
   - euler_angles:
-      x: -2.9454070329867244e-07
-      y: -2.671247696373058e-07
-      z: 2.3475770995261755
+      x: -1.0848665066397686e-07
+      y: -4.305119964964632e-07
+      z: 1.5776124965202352
     id: registed_goal_1
     position:
-      x: -113.31998443603516
-      y: -274.60491943359375
+      x: -113.02366638183594
+      y: -274.7230224609375
+      z: -3
+    properties:
+      Stop_wp: Stop_ON
+      goal_radius: 1.5
+  - euler_angles:
+      x: -1.0313024575319434e-07
+      y: -4.324507154596091e-07
+      z: 1.560146609873094
+    id: registed_goal_1
+    position:
+      x: -115.6617660522461
+      y: -254.94810485839844
+      z: -3
+    properties:
+      Stop_wp: Stop_ON
+      goal_radius: 1.5
+  - euler_angles:
+      x: -2.7601408223962936e-07
+      y: 6.06343604214743e-08
+      z: -2.892475041497813
+    id: registed_goal_1
+    position:
+      x: -118.22508239746094
+      y: -253.59613037109375
       z: -3
     properties:
       Stop_wp: Stop_ON
@@ -227,32 +174,8 @@ waypoint_server:
       z: 2.3475770995261755
     id: registed_goal_1
     position:
-      x: -116.3179931640625
-      y: -252.46617126464844
-      z: -3
-    properties:
-      Stop_wp: Stop_ON
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.9454070329867244e-07
-      y: -2.671247696373058e-07
-      z: 2.3475770995261755
-    id: registed_goal_1
-    position:
-      x: -118.39682006835938
-      y: -251.5602264404297
-      z: -3
-    properties:
-      Stop_wp: Stop_ON
-      goal_radius: 1.5
-  - euler_angles:
-      x: -2.9454070329867244e-07
-      y: -2.671247696373058e-07
-      z: 2.3475770995261755
-    id: registed_goal_1
-    position:
-      x: -137.35841369628906
-      y: -254.07266235351562
+      x: -160.3605194091797
+      y: -213.26910400390625
       z: -3
     properties:
       goal_radius: 1.5
@@ -262,41 +185,8 @@ waypoint_server:
       z: 2.3475770995261755
     id: registed_goal_1
     position:
-      x: -154.0384521484375
-      y: -246.9028778076172
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
-    id: registed_goal_1
-    position:
-      x: -161.07791137695312
-      y: -208.17489624023438
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
-    id: registed_goal_1
-    position:
-      x: -165.8544158935547
-      y: -174.75350952148438
-      z: -3
-    properties:
-      goal_radius: 1.5
-  - euler_angles:
-      x: 1.9707837636199345e-07
-      y: 1.178328721263e-07
-      z: -1.0521659102153633
-    id: registed_goal_1
-    position:
-      x: -171.4628448486328
-      y: -140.60032653808594
+      x: -170.68467712402344
+      y: -141.15040588378906
       z: -3
     properties:
       goal_radius: 1.5
@@ -312,13 +202,13 @@ waypoint_server:
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
+      x: 2.455644478536698e-07
+      y: -2.917309327443718e-08
+      z: -0.5604132723346085
     id: registed_goal_1
     position:
-      x: -208.02244567871094
-      y: -84.40044403076172
+      x: -207.9248504638672
+      y: -85.9986343383789
       z: -3
     properties:
       goal_radius: 1.5
@@ -328,8 +218,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -216.98748779296875
-      y: -54.99192810058594
+      x: -214.3739776611328
+      y: -54.302669525146484
       z: -3
     properties:
       goal_radius: 1.5
@@ -339,8 +229,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -248.52374267578125
-      y: -48.05944061279297
+      x: -249.59942626953125
+      y: -48.7310905456543
       z: -3
     properties:
       goal_radius: 1.5
@@ -350,8 +240,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -281.1866149902344
-      y: -60.696678161621094
+      x: -281.3371887207031
+      y: -60.32232666015625
       z: -3
     properties:
       goal_radius: 1.5
@@ -372,8 +262,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -283.8027038574219
-      y: -73.0030746459961
+      x: -289.34967041015625
+      y: -70.34839630126953
       z: -3
     properties:
       goal_radius: 1.5
@@ -383,8 +273,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -263.2447509765625
-      y: -110.59417724609375
+      x: -276.20269775390625
+      y: -85.39727020263672
       z: -3
     properties:
       goal_radius: 1.5
@@ -394,8 +284,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -255.29263305664062
-      y: -140.52345275878906
+      x: -261.90692138671875
+      y: -119.8267822265625
       z: -3
     properties:
       goal_radius: 1.5
@@ -405,8 +295,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -230.0011749267578
-      y: -166.23866271972656
+      x: -252.76551818847656
+      y: -148.40313720703125
       z: -3
     properties:
       goal_radius: 1.5
@@ -416,19 +306,19 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -208.90585327148438
-      y: -191.26943969726562
+      x: -211.2694549560547
+      y: -177.5849151611328
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
+      x: 3.0758044405331604e-07
+      y: -1.8252950262365175e-09
+      z: -0.6843273489787278
     id: registed_goal_1
     position:
-      x: -203.78822326660156
-      y: -228.9327392578125
+      x: -203.50892639160156
+      y: -229.61183166503906
       z: -3
     properties:
       goal_radius: 1.5
@@ -444,21 +334,21 @@ waypoint_server:
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
+      x: 2.9621811536490797e-07
+      y: -2.5920699897596933e-07
+      z: 0.1299361003090647
     id: registed_goal_1
     position:
       x: -137.1656036376953
-      y: -256.35791015625
+      y: -256.3579406738281
       z: -3
     properties:
       Stop_wp: Stop_ON
       goal_radius: 1.5
   - euler_angles:
-      x: -3.268202336767534e-07
-      y: -1.486150786877971e-07
-      z: 2.74129945720246
+      x: 2.9479969928422713e-07
+      y: -2.626050259468826e-07
+      z: 0.14076937111408702
     id: registed_goal_1
     position:
       x: -132.66847229003906
@@ -473,8 +363,8 @@ waypoint_server:
       z: 2.74129945720246
     id: registed_goal_1
     position:
-      x: -117.72509765625
-      y: -253.92166137695312
+      x: -117.5078125
+      y: -254.88941955566406
       z: -3
     properties:
       goal_radius: 1.5
@@ -484,8 +374,8 @@ waypoint_server:
       z: -1.0345174772878691
     id: registed_goal_1
     position:
-      x: -116.9541015625
-      y: -257.51495361328125
+      x: -116.71366119384766
+      y: -258.1324462890625
       z: -3
     properties:
       Stop_wp: Stop_ON
@@ -508,8 +398,8 @@ waypoint_server:
       z: -1.0345174772878691
     id: registed_goal_1
     position:
-      x: -99.335205078125
-      y: -368.23980712890625
+      x: -101.1207504272461
+      y: -368.2504577636719
       z: -3
     properties:
       goal_radius: 1.5
@@ -519,19 +409,20 @@ waypoint_server:
       z: -1.0345174772878691
     id: registed_goal_1
     position:
-      x: 81.178955078125
-      y: -343.0733337402344
+      x: 80.31808471679688
+      y: -343.8783264160156
       z: -3
     properties:
       goal_radius: 1.5
   - euler_angles:
-      x: 2.4148160613204467e-07
-      y: 9.91252575577306e-08
-      z: -1.0345174772878691
+      x: -9.949335546167759e-08
+      y: -4.2925249155167933e-07
+      z: 1.583673122347856
     id: registed_goal_1
     position:
-      x: 75.21146392822266
-      y: -278.1911315917969
+      x: 72.54762268066406
+      y: -282.5658874511719
       z: -3
     properties:
+      Stop_wp: Stop_ON
       goal_radius: 1.5

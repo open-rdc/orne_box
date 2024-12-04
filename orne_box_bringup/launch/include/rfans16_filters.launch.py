@@ -88,7 +88,7 @@ def generate_launch_description():
         parameters=[{
                 'target_frame': '',
                 'transform_tolerance': 0.1,
-                'min_height': 2.0,
+                'min_height': 0.0,
                 'max_height': 5.0,
                 'angle_min': -3.1415,  # -M_PI/2
                 'angle_max': 3.1415,  # M_PI/2

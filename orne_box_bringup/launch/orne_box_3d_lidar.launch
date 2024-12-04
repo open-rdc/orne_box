@@ -23,5 +23,8 @@
   <include file="$(find orne_box_bringup)/launch/includes/rosserial_stm32.launch"/>
   <include file="$(find orne_box_bringup)/launch/includes/theta.launch"/>
   <include file="$(find orne_box_bringup)/launch/includes/sanwa.launch"/>
+  <!--include file="$(find orne_box_bringup)/launch/includes/ublox_device.launch">
+    <arg name="param_file_name" default="scr_u2t"/>
+  </include-->
   <node pkg="orne_box_bringup" type="projected_transform_publisher_node" name="projected_transform_publisher" output="$(arg output)"/>
 </launch>

@@ -70,7 +70,7 @@ global_obstacles_inflation_layer:
   enabled: true
   use_maximum: true
   inflate_unknown: true
-  inflation_radius: 1.2
+  inflation_radius: 0.5
   cost_scaling_factor: 3.0
 planner_map_layer:
   enabled: true

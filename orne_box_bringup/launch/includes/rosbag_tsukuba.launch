@@ -18,6 +18,7 @@
 	 /move_base/global_costmap/costmap_updates
  	 /move_base/local_costmap/costmap
  	 /move_base/local_costmap/costmap_updates
+ 	 /move_base/GlobalPlanner/plan
   	 /amcl_pose
 	 /sanwa/image_raw/compressed
 	 /theta/image_raw/compressed

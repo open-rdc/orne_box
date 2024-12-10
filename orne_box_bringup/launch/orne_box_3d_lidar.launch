@@ -20,7 +20,7 @@
     <arg name="cloud_source" default="/rfans/surestar_points"/>
     <arg name="output_frame_id" default="surestar"/>
   </include>
-  <include file="$(find orne_box_bringup)/launch/includes/rosserial_stm32.launch"/>
+  <!--include file="$(find orne_box_bringup)/launch/includes/rosserial_stm32.launch"/-->
   <include file="$(find orne_box_bringup)/launch/includes/theta.launch"/>
   <include file="$(find orne_box_bringup)/launch/includes/sanwa.launch"/>
   <!--include file="$(find orne_box_bringup)/launch/includes/ublox_device.launch">

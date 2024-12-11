@@ -31,7 +31,7 @@ def generate_launch_description():
             {'rps': 10},
             {'pcap': ''},
             {'data_level': 3},
-            {'use_double_echo': False},
+            {'u nbbbbbbbbbbbse_double_echo': False},
             {'read_fast': read_fast},
             {'read_once': read_once},
             {'repeat_delay': repeat_delay},

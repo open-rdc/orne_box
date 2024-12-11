@@ -73,15 +73,15 @@ emcl2:
     laser_min_range: 0.0
     laser_max_range: 100000000.0
     scan_increment: 1
-    initial_pose_x: -0.14
-    initial_pose_y: 59.8
-    initial_pose_a: 1.57
+    initial_pose_x: 112.25
+    initial_pose_y: -302.4
+    initial_pose_a: 0.0
     num_particles: 500
-    alpha_threshold: 0.5
-    expansion_radius_position: 0.1
+    alpha_threshold: 0.05
+    expansion_radius_position: 0.2
     expansion_radius_orientation: 0.2
     extraction_rate: 0.1
-    range_threshold: 0.3
+    range_threshold: 0.9
     sensor_reset: false
     odom_fw_dev_per_fw: 0.19
     odom_fw_dev_per_rot: 0.0001
@@ -206,7 +206,7 @@ controller_server:
       debug_trajectory_details: True
       min_vel_x: 0.0
       min_vel_y: 0.0
-      max_vel_x: 0.9
+      max_vel_x: 0.6
       max_vel_y: 0.0
       max_vel_theta: 0.7
       min_speed_xy: 0.0
@@ -269,9 +269,9 @@ global_costmap:
         scan:
           # topic: /scan
           topic: /low_scan
-          obstacle_max_range: 2.5
+          obstacle_max_range: 10.0
           obstacle_min_range: 0.0
-          raytrace_max_range: 3.0
+          raytrace_max_range: 11.0
           raytrace_min_range: 0.0
           max_obstacle_height: 2.0
           min_obstacle_height: 0.0
@@ -439,9 +439,9 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [0.9, 0.0, 1.7]
-    min_velocity: [-0.9, 0.0, -0.7]
-    max_accel: [1.0, 0.0, 1.0]
+    max_velocity: [0.6, 0.0, 1.7]
+    min_velocity: [-0.6, 0.0, -0.7]
+    max_accel: [0.5, 0.0, 1.0]
     max_decel: [-2.0, 0.0, -2.0]
     odom_topic: "odom"
     odom_duration: 0.1

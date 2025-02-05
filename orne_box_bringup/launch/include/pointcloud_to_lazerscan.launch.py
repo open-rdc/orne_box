@@ -16,7 +16,7 @@ def generate_launch_description():
             remappings=[('cloud_in', [LaunchConfiguration(variable_name='scanner'), 'rfans/surestar_points']),
                         ('scan', [LaunchConfiguration(variable_name='scanner'), '/scan_re'])],
             parameters=[{
-                'target_frame': 'base_link' #'',
+                'target_frame': 'base_link', #''
                 'transform_tolerance': 0.01,
                 'min_height': -1.0,
                 'max_height': 20.0, #30.0,

@@ -52,7 +52,7 @@ Visualization Manager:
       Collision Enabled: true
       Description File: /opt/ros/foxy/share/turtlebot3_description/urdf/turtlebot3_waffle_pi.urdf
       Description Source: File
-      Description Topic: 
+      Description Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last

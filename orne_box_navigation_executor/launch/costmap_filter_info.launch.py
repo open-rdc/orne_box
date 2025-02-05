@@ -34,7 +34,8 @@ def generate_launch_description():
         default=os.path.join(
             config_dir,
             'maps',
-            'tsukuba_keepout.yaml'))
+            'tsudanuma_all_keepout.ymal'))
+            #'tsukuba_keepout.yaml'))
     # Create our own temporary YAML files that include substitutions
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']
 

@@ -13,11 +13,11 @@ def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('orne_box_navigation_executor'), 'launch')
     config_dir = os.path.join(nav_dir, 'config')
 
-    # map_pass = 'tsudanuma_all' # z軸（2~5m）
-    # map_pass = 'tsudanuma' # z軸（0~5m）
-    map_pass = 'tsukuba2024_all' # z軸（0~5m）
-    # map_pass = 'cit_3f_map'
-    # WAYPOI    NT_PATH = 'tsukuba2024_all'
+    map_pass = 'tsudanuma_all' # z軸（2~5m）
+    #map_pass = 'tsudanuma' # z軸（0~5m）
+    # map_pass = 'tsukuba2024_all' # z軸（0~5m）
+    #map_pass = 'cit_3f_map'   #tsudanuma_all
+     # WAYPOINT_PATH = 'tsukuba2024_all'
     # WAYPOINT_PATH = 'tsudanuma2-3'
     bt_file_name ='navigate_w_replanning_and_wait.xml'
 
@@ -25,6 +25,7 @@ def generate_launch_description():
     costmap_data = LaunchConfiguration('mask', default=os.path.join(config_dir, 'maps', map_pass + '_keepout.yaml'))
     # waypoint_file = os.path.join(config_dir, 'waypoints', f'{WAYPOINT_PATH}.yaml')
     bt_dir = LaunchConfiguration('default_bt_xml_filename', default=os.path.join(config_dir, 'behavior_trees', bt_file_name))
+    #rviz_config_dir = os.path.join(config_dir, 'rviz', 'nav2_default_view2.rviz')
     rviz_config_dir = os.path.join(config_dir, 'rviz', 'nav2_TC2024_view2.rviz')
     
     lifecycle_nodes = ['filter_mask_server', 'costmap_filter_info_server']

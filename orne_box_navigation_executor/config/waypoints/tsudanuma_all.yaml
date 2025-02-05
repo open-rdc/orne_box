@@ -10,13 +10,25 @@ waypoint_server:
   scale: 1
   waypoints:
   - euler_angles:
+      x: 1.927719181415743e-07
+      y: -2.399313636658462e-09
+      z: -1.3611762252399093
+    id: 2
+    position:
+      x: -290.3011779785156
+      y: -319.69061279296875
+      z: 1
+    properties:
+      Stop_wp: Stop_OFF
+      goal_radius: 1.5
+  - euler_angles:
       x: -1.8282661820076782e-07
       y: -2.526307960604157e-07
       z: 1.6901790332629312
     id: 2
     position:
-      x: -281.5547790527344
-      y: -371.22332763671875
+      x: -284.2462158203125
+      y: -369.3822326660156
       z: 1
     properties:
       Stop_wp: Stop_OFF
@@ -401,6 +413,18 @@ waypoint_server:
     position:
       x: -312.22607421875
       y: -321.00543212890625
+      z: 1
+    properties:
+      Stop_wp: Stop_ON
+      goal_radius: 1.5
+  - euler_angles:
+      x: -1.357973372260204e-07
+      y: 3.963427053221835e-08
+      z: -3.1066346190723593
+    id: 2
+    position:
+      x: -307.92938232421875
+      y: -320.390869140625
       z: 1
     properties:
       Stop_wp: Stop_ON
